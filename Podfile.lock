@@ -263,6 +263,7 @@ PODS:
   - SVGKit (2.1.1):
     - CocoaLumberjack (~> 3.0)
   - Swinject (2.7.1)
+  - Then (2.6.0)
 
 DEPENDENCIES:
   - Firebase/Auth
@@ -274,6 +275,7 @@ DEPENDENCIES:
   - SnapKit
   - SVGKit
   - Swinject
+  - Then
 
 SPEC REPOS:
   trunk:
@@ -304,6 +306,7 @@ SPEC REPOS:
     - SnapKit
     - SVGKit
     - Swinject
+    - Then
 
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
@@ -333,7 +336,8 @@ SPEC CHECKSUMS:
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SVGKit: 652cdf7bef8bec8564d04a8511d3ab50c7595fac
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
+  Then: 90cd104fd951cec1980a03f57704ad8f784d4d79
 
-PODFILE CHECKSUM: 4f49acd76ef1f68201bcf5ce367e26e9b9467a18
+PODFILE CHECKSUM: 0c7af5f02f4c7fe704766b62cf011858a5fd2600
 
 COCOAPODS: 1.8.4

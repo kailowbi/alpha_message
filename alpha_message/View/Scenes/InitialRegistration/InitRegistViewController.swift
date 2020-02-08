@@ -8,40 +8,47 @@
 
 import UIKit
 import SnapKit
+import Then
+import SVGKit
 
 class InitRegistViewController: UIViewController {
 
-    let bgView = UIView()
-    
-//    let image0 =
+//    let bgView = UIView()
+    let mainImageLogo = UIImageView(image: SVGKImage(contentsOf: R.file.logoSvg() ).uiImage )
+    let mainImageView = UIImageView().then {
+        $0.image = R.image.rectangleJpg()
+    }
+    let buttonArea = UIView().then{
+        $0.backgroundColor = .white
+    }
+    let safeAreaDammy = UIView().then{
+        $0.backgroundColor = .white
+    }
 
-//    let layer0 = CALayer()
-
-//    layer0.contents = image0
-//
-//    layer0.transform = CATransform3DMakeAffineTransform(CGAffineTransform(a: 2.83, b: 0, c: 0, d: 1, tx: -0.91, ty: 0))
-//
-//    layer0.bounds = view.bounds
-//
-//    layer0.position = view.center
-//
-//    view.layer.addSublayer(layer0)
-
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-        self.view.backgroundColor = .systemYellow
-        bgView.backgroundColor = .red
-        
-        self.view.addSubview(bgView)
-        bgView.snp.makeConstraints { make in
-            make.top.right.bottom.left.equalToSuperview()
+        self.view.addSubview(mainImageView)
+        self.mainImageView.addSubview(mainImageLogo)
+        self.view.addSubview(buttonArea)
+        self.view.addSubview(safeAreaDammy)
+
+        mainImageView.snp.makeConstraints { make in
+            make.top.right.left.equalToSuperview()
+            make.bottom.equalTo(buttonArea.snp.top)
         }
-        
+        mainImageLogo.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+        buttonArea.snp.makeConstraints { make in
+            make.height.equalTo(71)
+            make.right.left.equalToSuperview()
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
+        }
+        safeAreaDammy.snp.makeConstraints { make in
+            make.top.equalTo(buttonArea.snp.bottom)
+            make.right.bottom.left.equalToSuperview()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

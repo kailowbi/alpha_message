@@ -10,6 +10,7 @@ target 'alpha_message' do
   pod "RxSwift"
   pod "RxCocoa"
   pod "ReactorKit"
+  pod "Then"
   pod "SnapKit"
   pod "Firebase/Auth"
   pod "Firebase/Firestore"
