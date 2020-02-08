@@ -1,0 +1,89 @@
+# Mac
+.DS_Store
+
+# Xcode
+build/*
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+!default.xcworkspace
+xcuserdata
+profile
+*.moved-aside
+
+#CocoaPod
+Pods/*
+
+#IDEA
+.idea/*
+
+#cocos2d-x
+libs/
+bin/
+obj/
+assets/
+gen/
+out/
+.classpath
+.project
+.cproject
+
+#JAVA
+*.class
+
+# Xcode project files except for the project file
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+*.xcworkspace/*
+!*.xcworkspace/contents.xcworkspacedata
+xcuserdata/
+UserInterfaceState.xcuserstate
+xcshareddata/
+
+
+# Build dir
+build/
+
+# Android
+# built application files
+*.apk
+*.ap_
+
+# files for the dex VM
+*.dex
+
+# Java class files
+*.class
+
+# generated files
+bin/
+gen/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# PDT-specific
+.buildpath
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Global/Windows.gitignore
+# Windows image file caches
+Thumbs.db
+
+# Folder config file
+Desktop.ini
+
+# forWeb
+_notes/
+dwsync.xml
