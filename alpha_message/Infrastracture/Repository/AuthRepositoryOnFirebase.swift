@@ -7,7 +7,14 @@
 //
 
 import Foundation
+import RxSwift
 
-class AuthRepositoryOnFirebase {
+class AuthRepositoryOnFirebase : AuthRepository {
+    func registor() -> Observable<Void> {
+        return Observable.empty()
+    }
     
+    func login() -> Observable<Void> {
+        return Observable.empty()
+    }    
 }

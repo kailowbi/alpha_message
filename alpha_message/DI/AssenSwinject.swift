@@ -8,22 +8,53 @@
 
 import Swinject
 
-class AssenSwinject {
-    let container = Container()
-
-//    container.register(AuthRepository.self) { r in
-//        r.resolve(AuthRepositoryOnFirebase.self)
-//    }
-
-}
-
+//class AssenSwinject {
+//    let container = Container()
+////    container.register(AuthRepository.self) { r in
+////        r.resolve(AuthRepositoryOnFirebase.self)
+////    }
+//
+//}
 
 extension Container {
     
-    //static var shared:Container{
+    static var shared:Container{
+        let container = Container()
+        let assembler = Assembler(container: container)
         
-//        let container: Containe
-    //}
+        assembler.apply(assemblies: [
+            ViewAssembly(),
+            ReactorAssembly(),
+            RepositoryAssembly()
+        ])
+        
+        return container
+    }
+}
+
+extension Container {
+    class ViewAssembly: Assembly {
+        func assemble(container: Container) {
+            container.register(InitRegistViewController.self) { r in
+                return InitRegistViewController()
+            }
+        }
+    }
     
-   
+    class ReactorAssembly: Assembly {
+        func assemble(container: Container) {
+            container.register(InitRegistViewReactor.self) { r in
+                return InitRegistViewReactor(authRepository: r.resolve(AuthRepository.self)!)
+            }
+        }
+    }
+    
+    class RepositoryAssembly: Assembly {
+        func assemble(container: Container) {
+            container.register(AuthRepository.self) { r in
+                return AuthRepositoryOnFirebase()
+            }
+        }
+        
+    }
 }

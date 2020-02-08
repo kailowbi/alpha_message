@@ -13,6 +13,7 @@
 		A01A960023EEA73400844C13 /* AuthRepositoryOnFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01A95FF23EEA73400844C13 /* AuthRepositoryOnFirebase.swift */; };
 		A01A960323EEA73E00844C13 /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01A960123EEA73E00844C13 /* AuthRepository.swift */; };
 		A01A960423EEA73E00844C13 /* MessageDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01A960223EEA73E00844C13 /* MessageDataRepository.swift */; };
+		A01A960623EEAAA100844C13 /* InitRegistViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01A960523EEAAA100844C13 /* InitRegistViewReactor.swift */; };
 		A09E168023EE8507003407FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09E167F23EE8507003407FA /* AppDelegate.swift */; };
 		A09E168223EE8507003407FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09E168123EE8507003407FA /* SceneDelegate.swift */; };
 		A09E168423EE8507003407FA /* InitRegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09E168323EE8507003407FA /* InitRegistViewController.swift */; };
@@ -54,6 +55,7 @@
 		A01A95FF23EEA73400844C13 /* AuthRepositoryOnFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthRepositoryOnFirebase.swift; sourceTree = "<group>"; };
 		A01A960123EEA73E00844C13 /* AuthRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
 		A01A960223EEA73E00844C13 /* MessageDataRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDataRepository.swift; sourceTree = "<group>"; };
+		A01A960523EEAAA100844C13 /* InitRegistViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitRegistViewReactor.swift; sourceTree = "<group>"; };
 		A09E167C23EE8506003407FA /* alpha_message.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = alpha_message.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A09E167F23EE8507003407FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A09E168123EE8507003407FA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				A09E168323EE8507003407FA /* InitRegistViewController.swift */,
+				A01A960523EEAAA100844C13 /* InitRegistViewReactor.swift */,
 			);
 			path = InitialRegistration;
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 				A09E168423EE8507003407FA /* InitRegistViewController.swift in Sources */,
 				A01A960423EEA73E00844C13 /* MessageDataRepository.swift in Sources */,
 				A09E168023EE8507003407FA /* AppDelegate.swift in Sources */,
+				A01A960623EEAAA100844C13 /* InitRegistViewReactor.swift in Sources */,
 				A09E168223EE8507003407FA /* SceneDelegate.swift in Sources */,
 				A01A960323EEA73E00844C13 /* AuthRepository.swift in Sources */,
 				A01A960023EEA73400844C13 /* AuthRepositoryOnFirebase.swift in Sources */,
