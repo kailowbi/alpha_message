@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		3077D47FCF201D093A2E19AB /* Pods_alpha_message_alpha_messageUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725110786422CD7FA6A52F84 /* Pods_alpha_message_alpha_messageUITests.framework */; };
 		A01A95FC23EEA61000844C13 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A01A95FB23EEA60F00844C13 /* GoogleService-Info.plist */; };
+		A01A95FE23EEA72D00844C13 /* AssenSwinject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01A95FD23EEA72C00844C13 /* AssenSwinject.swift */; };
+		A01A960023EEA73400844C13 /* AuthRepositoryOnFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01A95FF23EEA73400844C13 /* AuthRepositoryOnFirebase.swift */; };
+		A01A960323EEA73E00844C13 /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01A960123EEA73E00844C13 /* AuthRepository.swift */; };
+		A01A960423EEA73E00844C13 /* MessageDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01A960223EEA73E00844C13 /* MessageDataRepository.swift */; };
 		A09E168023EE8507003407FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09E167F23EE8507003407FA /* AppDelegate.swift */; };
 		A09E168223EE8507003407FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09E168123EE8507003407FA /* SceneDelegate.swift */; };
 		A09E168423EE8507003407FA /* InitRegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09E168323EE8507003407FA /* InitRegistViewController.swift */; };
@@ -46,6 +50,10 @@
 		8209D9114A5C34789C52D394 /* Pods-alpha_message.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alpha_message.debug.xcconfig"; path = "Target Support Files/Pods-alpha_message/Pods-alpha_message.debug.xcconfig"; sourceTree = "<group>"; };
 		986C69802E36681B090D34BD /* Pods-alpha_message.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alpha_message.release.xcconfig"; path = "Target Support Files/Pods-alpha_message/Pods-alpha_message.release.xcconfig"; sourceTree = "<group>"; };
 		A01A95FB23EEA60F00844C13 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A01A95FD23EEA72C00844C13 /* AssenSwinject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssenSwinject.swift; sourceTree = "<group>"; };
+		A01A95FF23EEA73400844C13 /* AuthRepositoryOnFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthRepositoryOnFirebase.swift; sourceTree = "<group>"; };
+		A01A960123EEA73E00844C13 /* AuthRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
+		A01A960223EEA73E00844C13 /* MessageDataRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDataRepository.swift; sourceTree = "<group>"; };
 		A09E167C23EE8506003407FA /* alpha_message.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = alpha_message.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A09E167F23EE8507003407FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A09E168123EE8507003407FA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +144,7 @@
 		A01A95DA23EE8DC200844C13 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				A01A95FF23EEA73400844C13 /* AuthRepositoryOnFirebase.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -166,6 +175,8 @@
 		A01A95DE23EE98FD00844C13 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				A01A960123EEA73E00844C13 /* AuthRepository.swift */,
+				A01A960223EEA73E00844C13 /* MessageDataRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -173,6 +184,7 @@
 		A01A95DF23EE995100844C13 /* DI */ = {
 			isa = PBXGroup;
 			children = (
+				A01A95FD23EEA72C00844C13 /* AssenSwinject.swift */,
 			);
 			path = DI;
 			sourceTree = "<group>";
@@ -484,8 +496,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A09E168423EE8507003407FA /* InitRegistViewController.swift in Sources */,
+				A01A960423EEA73E00844C13 /* MessageDataRepository.swift in Sources */,
 				A09E168023EE8507003407FA /* AppDelegate.swift in Sources */,
 				A09E168223EE8507003407FA /* SceneDelegate.swift in Sources */,
+				A01A960323EEA73E00844C13 /* AuthRepository.swift in Sources */,
+				A01A960023EEA73400844C13 /* AuthRepositoryOnFirebase.swift in Sources */,
+				A01A95FE23EEA72D00844C13 /* AssenSwinject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
