@@ -180,6 +180,7 @@
 		A01A95FA23EEA60F00844C13 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A09E168D23EE850D003407FA /* Info.plist */,
 				A01A95FB23EEA60F00844C13 /* GoogleService-Info.plist */,
 			);
 			path = "Supporting Files";
@@ -220,7 +221,6 @@
 				A09E168523EE8507003407FA /* Main.storyboard */,
 				A09E168823EE850C003407FA /* Assets.xcassets */,
 				A09E168A23EE850C003407FA /* LaunchScreen.storyboard */,
-				A09E168D23EE850D003407FA /* Info.plist */,
 			);
 			path = alpha_message;
 			sourceTree = "<group>";
@@ -660,7 +660,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = alpha_message/Info.plist;
+				INFOPLIST_FILE = "alpha_message/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -678,7 +678,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = alpha_message/Info.plist;
+				INFOPLIST_FILE = "alpha_message/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
