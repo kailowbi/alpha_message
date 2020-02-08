@@ -13,8 +13,26 @@ class InitRegistViewController: UIViewController {
 
     let bgView = UIView()
     
+//    let image0 =
+
+//    let layer0 = CALayer()
+
+//    layer0.contents = image0
+//
+//    layer0.transform = CATransform3DMakeAffineTransform(CGAffineTransform(a: 2.83, b: 0, c: 0, d: 1, tx: -0.91, ty: 0))
+//
+//    layer0.bounds = view.bounds
+//
+//    layer0.position = view.center
+//
+//    view.layer.addSublayer(layer0)
+
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         self.view.backgroundColor = .systemYellow
         bgView.backgroundColor = .red

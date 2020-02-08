@@ -15,6 +15,7 @@
 		A01A960423EEA73E00844C13 /* MessageDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01A960223EEA73E00844C13 /* MessageDataRepository.swift */; };
 		A01A960623EEAAA100844C13 /* InitRegistViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01A960523EEAAA100844C13 /* InitRegistViewReactor.swift */; };
 		A01A960923EEFB1200844C13 /* UIViewController+AlertUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01A960823EEFAE700844C13 /* UIViewController+AlertUtil.swift */; };
+		A01A960E23EEFE5100844C13 /* Rectangle.svg in Resources */ = {isa = PBXBuildFile; fileRef = A01A960D23EEFE5100844C13 /* Rectangle.svg */; };
 		A09E168023EE8507003407FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09E167F23EE8507003407FA /* AppDelegate.swift */; };
 		A09E168223EE8507003407FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09E168123EE8507003407FA /* SceneDelegate.swift */; };
 		A09E168423EE8507003407FA /* InitRegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09E168323EE8507003407FA /* InitRegistViewController.swift */; };
@@ -22,6 +23,7 @@
 		A09E168C23EE850C003407FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A09E168A23EE850C003407FA /* LaunchScreen.storyboard */; };
 		A09E169723EE850D003407FA /* alpha_messageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09E169623EE850D003407FA /* alpha_messageTests.swift */; };
 		A09E16A223EE850E003407FA /* alpha_messageUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09E16A123EE850E003407FA /* alpha_messageUITests.swift */; };
+		A0D6F2BE23EF00F10019D6D5 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01A961223EEFF7A00844C13 /* R.generated.swift */; };
 		ACB7352D4FBFAD7656900A45 /* Pods_alpha_messageTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03534E12DC8326841C4671D1 /* Pods_alpha_messageTests.framework */; };
 		D348F6F13091997155CD2975 /* Pods_alpha_message.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEBD7CBAE45DE8D29FE8736A /* Pods_alpha_message.framework */; };
 /* End PBXBuildFile section */
@@ -57,6 +59,8 @@
 		A01A960223EEA73E00844C13 /* MessageDataRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDataRepository.swift; sourceTree = "<group>"; };
 		A01A960523EEAAA100844C13 /* InitRegistViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitRegistViewReactor.swift; sourceTree = "<group>"; };
 		A01A960823EEFAE700844C13 /* UIViewController+AlertUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AlertUtil.swift"; sourceTree = "<group>"; };
+		A01A960D23EEFE5100844C13 /* Rectangle.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Rectangle.svg; sourceTree = "<group>"; };
+		A01A961223EEFF7A00844C13 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		A09E167C23EE8506003407FA /* alpha_message.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = alpha_message.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A09E167F23EE8507003407FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A09E168123EE8507003407FA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -154,8 +158,9 @@
 		A01A95DB23EE8DC300844C13 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A01A960B23EEFDFA00844C13 /* Resources */,
+				A01A960A23EEFDEA00844C13 /* Scenes */,
 				A01A960723EEFAD200844C13 /* Commons */,
-				A01A95DC23EE987000844C13 /* InitialRegistration */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -210,6 +215,31 @@
 			path = Commons;
 			sourceTree = "<group>";
 		};
+		A01A960A23EEFDEA00844C13 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				A01A95DC23EE987000844C13 /* InitialRegistration */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		A01A960B23EEFDFA00844C13 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A09E168823EE850C003407FA /* Assets.xcassets */,
+				A01A960C23EEFE0A00844C13 /* SVG */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A01A960C23EEFE0A00844C13 /* SVG */ = {
+			isa = PBXGroup;
+			children = (
+				A01A960D23EEFE5100844C13 /* Rectangle.svg */,
+			);
+			path = SVG;
+			sourceTree = "<group>";
+		};
 		A09E167323EE8506003407FA = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +265,7 @@
 		A09E167E23EE8506003407FA /* alpha_message */ = {
 			isa = PBXGroup;
 			children = (
+				A01A961223EEFF7A00844C13 /* R.generated.swift */,
 				A09E167F23EE8507003407FA /* AppDelegate.swift */,
 				A09E168123EE8507003407FA /* SceneDelegate.swift */,
 				A01A95DB23EE8DC300844C13 /* View */,
@@ -242,7 +273,6 @@
 				A01A95D823EE8DAE00844C13 /* Domain */,
 				A01A95DF23EE995100844C13 /* DI */,
 				A01A95FA23EEA60F00844C13 /* Supporting Files */,
-				A09E168823EE850C003407FA /* Assets.xcassets */,
 				A09E168A23EE850C003407FA /* LaunchScreen.storyboard */,
 			);
 			path = alpha_message;
@@ -278,6 +308,7 @@
 				A09E167923EE8506003407FA /* Frameworks */,
 				A09E167A23EE8506003407FA /* Resources */,
 				0764BF75469A49215AF921EA /* [CP] Embed Pods Frameworks */,
+				A01A960F23EEFED800844C13 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -375,6 +406,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A01A960E23EEFE5100844C13 /* Rectangle.svg in Resources */,
 				A09E168C23EE850C003407FA /* LaunchScreen.storyboard in Resources */,
 				A01A95FC23EEA61000844C13 /* GoogleService-Info.plist in Resources */,
 				A09E168923EE850C003407FA /* Assets.xcassets in Resources */,
@@ -436,6 +468,25 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		A01A960F23EEFED800844C13 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/$PROJECT_NAME/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/$PROJECT_NAME/R.generated.swift\"\n";
 		};
 		B60B58543A3E14F303D02465 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -512,6 +563,7 @@
 				A01A960623EEAAA100844C13 /* InitRegistViewReactor.swift in Sources */,
 				A09E168223EE8507003407FA /* SceneDelegate.swift in Sources */,
 				A01A960323EEA73E00844C13 /* AuthRepository.swift in Sources */,
+				A0D6F2BE23EF00F10019D6D5 /* R.generated.swift in Sources */,
 				A01A960023EEA73400844C13 /* AuthRepositoryOnFirebase.swift in Sources */,
 				A01A95FE23EEA72D00844C13 /* AssenSwinject.swift in Sources */,
 			);

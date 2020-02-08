@@ -1,8 +1,10 @@
-# Mac
-.DS_Store
-
 # Xcode
-build/*
+
+## Build generated
+build/
+DerivedData/
+
+## Various settings
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -11,79 +13,63 @@ build/*
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
-!default.xcworkspace
-xcuserdata
-profile
-*.moved-aside
-
-#CocoaPod
-Pods/*
-
-#IDEA
-.idea/*
-
-#cocos2d-x
-libs/
-bin/
-obj/
-assets/
-gen/
-out/
-.classpath
-.project
-.cproject
-
-#JAVA
-*.class
-
-# Xcode project files except for the project file
-*.xcodeproj/*
-!*.xcodeproj/project.pbxproj
-*.xcworkspace/*
-!*.xcworkspace/contents.xcworkspacedata
 xcuserdata/
-UserInterfaceState.xcuserstate
-xcshareddata/
+*.xcworkspace/
+
+## Other
+*.moved-aside
+*.xcuserstate
+
+## Obj-C/Swift specific
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# CocoaPods
+Pods/
+
+# Editor save state
+.vscode/
+
+## Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# Swift Package Manager
+#
+# Add this line if you want to avoid checking in source code from Swift Package Manager dependencies.
+# Packages/
+# Package.pins
+# Package.resolved
+.build/
+
+# Carthage
+#
+# Add this line if you want to avoid checking in source code from Carthage dependencies.
+# Carthage/Checkouts
+Carthage/Build
+
+# fastlane
+#
+# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
+# screenshots whenever they are needed.
+# For more information about the recommended setup visit:
+# https://docs.fastlane.tools/best-practices/source-control/#source-control
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+fastlane/derived_data
+fastlane/xcov_report
+
+# bundler
+vendor/bundle
+.ruby-version
+
+# Mac
+*.DS_Store
 
 
-# Build dir
-build/
 
-# Android
-# built application files
-*.apk
-*.ap_
-
-# files for the dex VM
-*.dex
-
-# Java class files
-*.class
-
-# generated files
-bin/
-gen/
-
-# Locally stored "Eclipse launch configurations"
-*.launch
-
-# PDT-specific
-.buildpath
-
-# Thumbnails
-._*
-
-# Files that might appear on external disk
-.Spotlight-V100
-.Trashes
-
-# Global/Windows.gitignore
-# Windows image file caches
-Thumbs.db
-
-# Folder config file
-Desktop.ini
-
-# forWeb
-_notes/
-dwsync.xml
+*.generated.swift
