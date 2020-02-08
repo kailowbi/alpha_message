@@ -23,7 +23,7 @@
 		A09E168C23EE850C003407FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A09E168A23EE850C003407FA /* LaunchScreen.storyboard */; };
 		A09E169723EE850D003407FA /* alpha_messageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09E169623EE850D003407FA /* alpha_messageTests.swift */; };
 		A09E16A223EE850E003407FA /* alpha_messageUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09E16A123EE850E003407FA /* alpha_messageUITests.swift */; };
-		A0D6F2BE23EF00F10019D6D5 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01A961223EEFF7A00844C13 /* R.generated.swift */; };
+		A0FE593523EF059000A290F4 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D6F2BF23EF02D90019D6D5 /* R.generated.swift */; };
 		ACB7352D4FBFAD7656900A45 /* Pods_alpha_messageTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03534E12DC8326841C4671D1 /* Pods_alpha_messageTests.framework */; };
 		D348F6F13091997155CD2975 /* Pods_alpha_message.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEBD7CBAE45DE8D29FE8736A /* Pods_alpha_message.framework */; };
 /* End PBXBuildFile section */
@@ -60,7 +60,6 @@
 		A01A960523EEAAA100844C13 /* InitRegistViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitRegistViewReactor.swift; sourceTree = "<group>"; };
 		A01A960823EEFAE700844C13 /* UIViewController+AlertUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AlertUtil.swift"; sourceTree = "<group>"; };
 		A01A960D23EEFE5100844C13 /* Rectangle.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Rectangle.svg; sourceTree = "<group>"; };
-		A01A961223EEFF7A00844C13 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		A09E167C23EE8506003407FA /* alpha_message.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = alpha_message.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A09E167F23EE8507003407FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A09E168123EE8507003407FA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +73,7 @@
 		A09E169D23EE850E003407FA /* alpha_messageUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = alpha_messageUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A09E16A123EE850E003407FA /* alpha_messageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alpha_messageUITests.swift; sourceTree = "<group>"; };
 		A09E16A323EE850E003407FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0D6F2BF23EF02D90019D6D5 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		B220EB373ED83E80D8C33F0A /* Pods-alpha_message-alpha_messageUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alpha_message-alpha_messageUITests.debug.xcconfig"; path = "Target Support Files/Pods-alpha_message-alpha_messageUITests/Pods-alpha_message-alpha_messageUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B62E8684AD1B532887913F8D /* Pods-alpha_message-alpha_messageUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alpha_message-alpha_messageUITests.release.xcconfig"; path = "Target Support Files/Pods-alpha_message-alpha_messageUITests/Pods-alpha_message-alpha_messageUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DEBD7CBAE45DE8D29FE8736A /* Pods_alpha_message.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_alpha_message.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -226,6 +226,7 @@
 		A01A960B23EEFDFA00844C13 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A0D6F2BF23EF02D90019D6D5 /* R.generated.swift */,
 				A09E168823EE850C003407FA /* Assets.xcassets */,
 				A01A960C23EEFE0A00844C13 /* SVG */,
 			);
@@ -265,7 +266,6 @@
 		A09E167E23EE8506003407FA /* alpha_message */ = {
 			isa = PBXGroup;
 			children = (
-				A01A961223EEFF7A00844C13 /* R.generated.swift */,
 				A09E167F23EE8507003407FA /* AppDelegate.swift */,
 				A09E168123EE8507003407FA /* SceneDelegate.swift */,
 				A01A95DB23EE8DC300844C13 /* View */,
@@ -304,11 +304,11 @@
 			buildConfigurationList = A09E16A623EE850E003407FA /* Build configuration list for PBXNativeTarget "alpha_message" */;
 			buildPhases = (
 				31BE551EF4948E143928FE84 /* [CP] Check Pods Manifest.lock */,
+				A01A960F23EEFED800844C13 /* ShellScript */,
 				A09E167823EE8506003407FA /* Sources */,
 				A09E167923EE8506003407FA /* Frameworks */,
 				A09E167A23EE8506003407FA /* Resources */,
 				0764BF75469A49215AF921EA /* [CP] Embed Pods Frameworks */,
-				A01A960F23EEFED800844C13 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -482,11 +482,11 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				$SRCROOT/$PROJECT_NAME/R.generated.swift,
+				$SRCROOT/$PROJECT_NAME/View/Resources/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/$PROJECT_NAME/R.generated.swift\"\n";
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/$PROJECT_NAME/View/Resources/R.generated.swift\"\n";
 		};
 		B60B58543A3E14F303D02465 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -563,7 +563,7 @@
 				A01A960623EEAAA100844C13 /* InitRegistViewReactor.swift in Sources */,
 				A09E168223EE8507003407FA /* SceneDelegate.swift in Sources */,
 				A01A960323EEA73E00844C13 /* AuthRepository.swift in Sources */,
-				A0D6F2BE23EF00F10019D6D5 /* R.generated.swift in Sources */,
+				A0FE593523EF059000A290F4 /* R.generated.swift in Sources */,
 				A01A960023EEA73400844C13 /* AuthRepositoryOnFirebase.swift in Sources */,
 				A01A95FE23EEA72D00844C13 /* AssenSwinject.swift in Sources */,
 			);
