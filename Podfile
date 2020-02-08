@@ -6,6 +6,15 @@ target 'alpha_message' do
   use_frameworks!
 
   # Pods for alpha_message
+  pod "Swinject"
+  pod "RxSwift"
+  pod "RxCocoa"
+  pod "ReactorKit"
+  pod "SnapKit"
+  pod "Firebase/Auth"
+  pod "Firebase/Firestore"
+  pod "R.swift"
+  pod "SVGKit"
 
   target 'alpha_messageTests' do
     inherit! :search_paths
