@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		3077D47FCF201D093A2E19AB /* Pods_alpha_message_alpha_messageUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725110786422CD7FA6A52F84 /* Pods_alpha_message_alpha_messageUITests.framework */; };
+		A01A95FC23EEA61000844C13 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A01A95FB23EEA60F00844C13 /* GoogleService-Info.plist */; };
 		A09E168023EE8507003407FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09E167F23EE8507003407FA /* AppDelegate.swift */; };
 		A09E168223EE8507003407FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09E168123EE8507003407FA /* SceneDelegate.swift */; };
 		A09E168423EE8507003407FA /* InitRegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09E168323EE8507003407FA /* InitRegistViewController.swift */; };
@@ -44,6 +45,7 @@
 		725110786422CD7FA6A52F84 /* Pods_alpha_message_alpha_messageUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_alpha_message_alpha_messageUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8209D9114A5C34789C52D394 /* Pods-alpha_message.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alpha_message.debug.xcconfig"; path = "Target Support Files/Pods-alpha_message/Pods-alpha_message.debug.xcconfig"; sourceTree = "<group>"; };
 		986C69802E36681B090D34BD /* Pods-alpha_message.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alpha_message.release.xcconfig"; path = "Target Support Files/Pods-alpha_message/Pods-alpha_message.release.xcconfig"; sourceTree = "<group>"; };
+		A01A95FB23EEA60F00844C13 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A09E167C23EE8506003407FA /* alpha_message.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = alpha_message.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A09E167F23EE8507003407FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A09E168123EE8507003407FA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -175,6 +177,14 @@
 			path = DI;
 			sourceTree = "<group>";
 		};
+		A01A95FA23EEA60F00844C13 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A01A95FB23EEA60F00844C13 /* GoogleService-Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		A09E167323EE8506003407FA = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +215,7 @@
 				A01A95D923EE8DC200844C13 /* Infrastracture */,
 				A01A95D823EE8DAE00844C13 /* Domain */,
 				A01A95DF23EE995100844C13 /* DI */,
+				A01A95FA23EEA60F00844C13 /* Supporting Files */,
 				A09E168123EE8507003407FA /* SceneDelegate.swift */,
 				A09E168523EE8507003407FA /* Main.storyboard */,
 				A09E168823EE850C003407FA /* Assets.xcassets */,
@@ -342,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A09E168C23EE850C003407FA /* LaunchScreen.storyboard in Resources */,
+				A01A95FC23EEA61000844C13 /* GoogleService-Info.plist in Resources */,
 				A09E168923EE850C003407FA /* Assets.xcassets in Resources */,
 				A09E168723EE8507003407FA /* Main.storyboard in Resources */,
 			);
