@@ -19,6 +19,7 @@ target 'alpha_message' do
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
 
+  pod "RxViewController"
   pod "RxFirebase"
 
   target 'alpha_messageTests' do

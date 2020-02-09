@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxViewController
 import ReactorKit
 import SnapKit
 import Then
@@ -24,14 +25,13 @@ class MyProfileViewController: UIViewController {
         $0.font = UIFont(name: .comfortaaRegular, size: 36)
         $0.text = "Not Log in."
         $0.textAlignment = .center
+        $0.adjustsFontSizeToFitWidth = true
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = .white
-        
-
         
         self.view.addSubview(name)
         name.snp.makeConstraints { make in
@@ -45,6 +45,20 @@ class MyProfileViewController: UIViewController {
 
 extension MyProfileViewController : View {
     func bind(reactor: MyProfileViewReactor) {
+        
+        self.rx.viewWillAppear.map{ _ in
+            return Reactor.Action.initialize
+        }
+        .bind(to: reactor.action)
+        .disposed(by: self.disposeBag)
+        
+        reactor.state.map { $0.user }
+            .distinctUntilChanged()
+            .filter{ $0 != nil }
+            .subscribe(onNext: { [unowned self] user in
+                self.name.text = user?.id
+            }).disposed(by: self.disposeBag)
+        
         
     }
 }

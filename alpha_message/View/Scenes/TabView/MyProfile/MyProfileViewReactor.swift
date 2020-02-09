@@ -17,11 +17,14 @@ class MyProfileViewReactor: Reactor {
         case initialize
     }
     struct State {
-       var i : Int
+       var user : User?
     }
     let initialState: State = State(
-        i: 0
+        user: nil
     )
+    enum Mutation {
+        case setUser(user:User?)
+    }
     
     init(authRepository:AuthRepository) {
         self.authRepository = authRepository
@@ -30,16 +33,20 @@ class MyProfileViewReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .initialize:
-//            self.authRepository.login()
-            return Observable.empty()
+            return self.authRepository.currentUser().flatMap { user -> Observable<Mutation> in
+                return Observable.just(.setUser(user: user))
+            }
         }
-        return Observable.empty()
     }
     
-    func reduce(state: State, mutation: Action) -> State {
+    func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
         
+        switch mutation {
+        case .setUser(let user):
+            newState.user = user
+        }
         
-        return  newState
+        return newState
     }
 }

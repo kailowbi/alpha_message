@@ -20,6 +20,21 @@ class AuthRepositoryOnFirebase : AuthRepository {
         self.firebaseAuth = auth
     }
     
+    func currentUser() -> Observable<User> {
+        return Observable.create { [unowned self] observer in
+            
+            if let curretUser = self.firebaseAuth.currentUser {
+                let user = User(id: curretUser.uid, name: nil)
+                observer.onNext( user )
+            }else{
+                observer.onError(NSError())
+            }
+            observer.onCompleted()
+
+            return Disposables.create {}
+        }
+    }
+    
     func registor() -> Observable<Void> {
         return Observable.empty()
     }

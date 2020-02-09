@@ -40,6 +40,6 @@ class InitRegistViewReactor: Reactor {
         var newState = state
         
         
-        return  newState
+        return newState
     }
 }

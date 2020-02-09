@@ -37,6 +37,7 @@
 		A0BA9D5323EFF22C004E6EEC /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BA9D5223EFF22C004E6EEC /* UIColor+Hex.swift */; };
 		A0BA9D5623EFF528004E6EEC /* Comfortaa-VariableFont-wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0BA9D5523EFF3C1004E6EEC /* Comfortaa-VariableFont-wght.ttf */; };
 		A0BA9D5823EFF5F1004E6EEC /* UIFont+Family.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BA9D5723EFF5F1004E6EEC /* UIFont+Family.swift */; };
+		A0BA9D5B23F0270D004E6EEC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BA9D5A23F0270D004E6EEC /* User.swift */; };
 		A0FE593523EF059000A290F4 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D6F2BF23EF02D90019D6D5 /* R.generated.swift */; };
 		A0FE593723EF0E8500A290F4 /* SVGKit+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FE593623EF0E8500A290F4 /* SVGKit+Additions.swift */; };
 		A0FE593923EF133600A290F4 /* samp.svg in Resources */ = {isa = PBXBuildFile; fileRef = A0FE593823EF133500A290F4 /* samp.svg */; };
@@ -111,6 +112,7 @@
 		A0BA9D5223EFF22C004E6EEC /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		A0BA9D5523EFF3C1004E6EEC /* Comfortaa-VariableFont-wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-VariableFont-wght.ttf"; sourceTree = "<group>"; };
 		A0BA9D5723EFF5F1004E6EEC /* UIFont+Family.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Family.swift"; sourceTree = "<group>"; };
+		A0BA9D5A23F0270D004E6EEC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A0D6F2BF23EF02D90019D6D5 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		A0FE593623EF0E8500A290F4 /* SVGKit+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SVGKit+Additions.swift"; sourceTree = "<group>"; };
 		A0FE593823EF133500A290F4 /* samp.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = samp.svg; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 		A01A95DD23EE98C800844C13 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A0BA9D5A23F0270D004E6EEC /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 		A0BA9D3A23EFE8CF004E6EEC /* MyProfile */ = {
 			isa = PBXGroup;
 			children = (
+				A0BA9D5C23F03E1A004E6EEC /* New Group */,
 				A0BA9D3E23EFE974004E6EEC /* MyProfileViewController.swift */,
 				A0BA9D3F23EFE974004E6EEC /* MyProfileViewReactor.swift */,
 			);
@@ -389,6 +393,13 @@
 				A0BA9D5523EFF3C1004E6EEC /* Comfortaa-VariableFont-wght.ttf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		A0BA9D5C23F03E1A004E6EEC /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		A0FE594223EF251D00A290F4 /* RegisterOrLogin */ = {
@@ -694,6 +705,7 @@
 				A01A960023EEA73400844C13 /* AuthRepositoryOnFirebase.swift in Sources */,
 				A0BA9D3D23EFE950004E6EEC /* TabViewController.swift in Sources */,
 				A01A95FE23EEA72D00844C13 /* AssenSwinject.swift in Sources */,
+				A0BA9D5B23F0270D004E6EEC /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

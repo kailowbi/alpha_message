@@ -54,7 +54,7 @@ class RegisterOrLoginViewReactor: Reactor {
             newState.logined = logined
         }
         
-        return  newState
+        return newState
     }
     
 }
