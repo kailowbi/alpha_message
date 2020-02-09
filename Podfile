@@ -16,6 +16,10 @@ target 'alpha_message' do
   pod "Firebase/Firestore"
   pod "R.swift"
   pod "SVGKit"
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKLoginKit'
+
+  pod "RxFirebase"
 
   target 'alpha_messageTests' do
     inherit! :search_paths

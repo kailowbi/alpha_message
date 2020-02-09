@@ -9,10 +9,12 @@
 import Foundation
 import RxSwift
 import FirebaseAuth
+import RxFirebase
 
 class AuthRepositoryOnFirebase : AuthRepository {
     
     private let firebaseAuth:Auth
+    var provider = OAuthProvider(providerID: "twitter.com")
     
     init(auth:Auth) {
         self.firebaseAuth = auth
@@ -22,28 +24,36 @@ class AuthRepositoryOnFirebase : AuthRepository {
         return Observable.empty()
     }
     
-    func twitterLogin(token:String) -> Observable<Void> {
-        
-        let credential = FacebookAuthProvider.credential(withAccessToken: token)
-        
+    func twitterLogin() -> Observable<Void> {
+        return Observable.create { [unowned self] observer in                        
+            self.provider.getCredentialWith(nil) { [unowned self] (c, error) in
+                if let erro = error {
+                    // Handle error.
+                    observer.onError(erro)
+                    observer.onCompleted()
+                }else{
+                    guard let credential = c else {
+                        observer.onError(NSError())
+                        observer.onCompleted()
+                        return
+                    }
+                    
+                    self.firebaseAuth.signIn(with: credential) { (result, error) in
+                        if let erro = error {
+                            // Handle error.
+                            observer.onError(erro)
+                            observer.onCompleted()
+                        }else{
+                            observer.onNext(())
+                            observer.onCompleted()
+                        }
+                    }
+                }
+            }
             
-        return  Observable.empty()
-        
-//        if self.firebaseAuth.currentUser != nil{
-//            return self.firebaseAuth.currentUser!.rx.linkAndRetrieveData(with: credential).flatMap { authDataResult -> Observable<Bool> in
-//                return Observable.just( true )
-//            }.catchError { error -> Observable<Bool> in
-//                let e = error as NSError
-//                if e.code == AuthErrorCode.providerAlreadyLinked.rawValue {
-//                    return self.SocialSignInAndRetrieveData(credential: credential)
-//                }else{
-//                    return self.SocialSignInAndRetrieveData(credential: credential)
-//                }
-//            }
-//        }else{
-//            return self.SocialSignInAndRetrieveData(credential: credential)
-//        }
             
+            return Disposables.create {}
+        }
    
     }
     

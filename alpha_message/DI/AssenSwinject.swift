@@ -42,7 +42,9 @@ extension Container {
                 return InitRegistViewController()
             }
             container.register(RegisterOrLoginViewController.self) { r in
-                return RegisterOrLoginViewController()
+                let vc = RegisterOrLoginViewController()
+                vc.reactor = r.resolve(RegisterOrLoginViewReactor.self)!
+                return vc
             }
         }
     }

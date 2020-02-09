@@ -8,6 +8,7 @@
 
 import RxSwift
 import ReactorKit
+import FirebaseAuth
 
 class RegisterOrLoginViewReactor: Reactor {
         
@@ -15,13 +16,17 @@ class RegisterOrLoginViewReactor: Reactor {
     
     enum Action {
         case initialize
+        case signInByTwitter(credential:String)
     }
     struct State {
-       var i : Int
+       var logined : Bool
     }
     let initialState: State = State(
-        i: 0
+        logined: false
     )
+    enum Mutation{
+        case setLogined(logined:Bool)
+    }
     
     init(authRepository:AuthRepository) {
         self.authRepository = authRepository
@@ -32,14 +37,24 @@ class RegisterOrLoginViewReactor: Reactor {
         case .initialize:
 //            self.authRepository.login()
             return Observable.empty()
+        case .signInByTwitter(let credential):
+            return self.authRepository.twitterLogin().flatMap { _ -> Observable<Mutation> in
+                
+                return Observable.just(.setLogined(logined: true))
+           }
         }
         return Observable.empty()
     }
     
-    func reduce(state: State, mutation: Action) -> State {
+    func reduce(state: State, mutation: Mutation) -> RegisterOrLoginViewReactor.State {
         var newState = state
         
+        switch mutation {
+        case .setLogined(let logined):
+            newState.logined = logined
+        }
         
         return  newState
     }
+    
 }

@@ -10,6 +10,6 @@ import RxSwift
 
 protocol AuthRepository {
     func registor() -> Observable<Void>
-    func twitterLogin(token:String) -> Observable<Void>
+    func twitterLogin() -> Observable<Void>
 
 }

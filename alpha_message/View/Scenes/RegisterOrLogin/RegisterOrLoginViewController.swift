@@ -9,19 +9,24 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import ReactorKit
 import SnapKit
 import Then
 import SVGKit
 import FirebaseAuth
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 class RegisterOrLoginViewController: UIViewController {
 
-    let disposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
     
     let titles = UIImageView(image: SVGKImage(contentsOf: R.file.titleSvg() ).uiImage )
     let twitterButton = UIButton().then{
         $0.setImage(SVGKImage(contentsOf: R.file.twitterSvg()).uiImage, for: .normal)
     }
+    var provider = OAuthProvider(providerID: "twitter.com")
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,43 +46,66 @@ class RegisterOrLoginViewController: UIViewController {
         }
         
         
-        twitterButton.rx.tap.subscribe(onNext: { [unowned self] in
-            self.twiiterLogin()
-        }).disposed(by: self.disposeBag)
+       
         
       
     }
     
+
     func twiiterLogin(){
-        let provider = OAuthProvider(providerID: "twitter.com")
         provider.getCredentialWith(nil) { credential, error in
             if error != nil {
                 // Handle error.
                 print(11)
             }
             
+            
             if let credential = credential {
-                Auth.auth().signIn(with: credential) { authResult, error in
-                    if error != nil {
-                        // Handle error.
-                    }
-                    // User is signed in.
-                    // IdP data available in authResult.additionalUserInfo.profile.
-                    // Twitter OAuth access token can also be retrieved by:
-                    // authResult.credential.accessToken
-                    // Twitter OAuth ID token can be retrieved by calling:
-                    // authResult.credential.idToken
-                    // Twitter OAuth secret can be retrieved by calling:
-                    // authResult.credential.secret
-                    
-                    
-                    
-                }
+               
             }
         }
 
+    }
+    
+    func facebookLoginOnWebview(completion: ( (_ token:String?, _ error:Error?) -> ())? = nil ) {
+        let loginManager = LoginManager()
+        loginManager.logOut()
+        loginManager.logIn(permissions: ["public_profile", "email", "user_friends",], from: self) { [unowned self] (result, error) in
+//            self.reactor?.action.onNext(.setLoading(isLoading:true))
+
+            if (error == nil){
+                if let token = result?.token {
+                    completion?(token.tokenString, nil)
+                    return
+                }else{
+                    completion?(nil, nil)
+                }
+            }else{
+                print(error!.localizedDescription)
+                completion?(nil, error)
+            }
+        }
     }
    
 
 }
 
+extension RegisterOrLoginViewController : View {
+    func bind(reactor: RegisterOrLoginViewReactor) {
+     
+        twitterButton.rx.tap.map{
+            return Reactor.Action.signInByTwitter(credential: "ssss")
+        }
+        .bind(to: reactor.action)
+        .disposed(by: self.disposeBag)
+        
+        reactor.state.map { $0.logined }
+            .distinctUntilChanged()
+            .filter{ $0 == true }
+            .subscribe(onNext: { logined in
+                print("testset")
+                               
+                
+            }).disposed(by: self.disposeBag)
+    }
+}
