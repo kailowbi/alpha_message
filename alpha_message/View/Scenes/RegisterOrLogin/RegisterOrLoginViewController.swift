@@ -16,6 +16,7 @@ import SVGKit
 import FirebaseAuth
 import FBSDKCoreKit
 import FBSDKLoginKit
+import Swinject
 
 class RegisterOrLoginViewController: UIViewController {
 
@@ -103,28 +104,19 @@ extension RegisterOrLoginViewController : View {
             .distinctUntilChanged()
             .filter{ $0 == true }
             .subscribe(onNext: { [unowned self] logined in
-                print(11)
-              
-                // override RootViewContrroller
-//                if let windowScene = scene as? UIWindowScene {
-//                    let window = UIWindow(windowScene: windowScene)
-//                    window.rootViewController = Container.shared.resolve(TabViewController.self)!
-//                    self.window = window
-//                    window.makeKeyAndVisible()
-//                }
                 
-//                guard let window = UIApplication.shared.keyWindow else { return }
-//                let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//                if window.rootViewController?.presentedViewController != nil {
-//                    // モーダルを開いていたら閉じてから差し替え
-//                    window.rootViewController?.dismiss(animated: false) {
-//                        window.rootViewController = storyboard.instantiateInitialViewController()
-//                    }
-//                } else {
-//                    // モーダルを開いていなければそのまま差し替え
-//                    window.rootViewController = storyboard.instantiateInitialViewController()
-//                }
-                
+                self.dismiss(animated: true) {
+                    if let window = SceneDelegate.shared?.window{
+                        // A mask of options indicating how you want to perform the animations.
+                        let options: UIView.AnimationOptions = .transitionCrossDissolve
+                        
+                        SceneDelegate.shared?.window?.rootViewController = Container.shared.resolve(TabViewController.self)!
+                        
+                        UIView.transition(with: window, duration: 0.5, options: options, animations: {}, completion:nil)
+                    }
+                    
+                }
+
             }).disposed(by: self.disposeBag)
     }
 }

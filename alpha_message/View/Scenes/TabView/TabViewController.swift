@@ -23,7 +23,7 @@ class TabViewController: UITabBarController,UITabBarControllerDelegate {
         testVc.tabBarItem = UITabBarItem(title: nil, image: SVGKImage.customSVGKImage(contentsOf: R.file.my_profileSvg(), size: CGSize(width: 60, height: 60))!.uiImage , selectedImage: SVGKImage.customSVGKImage(contentsOf: R.file.my_profile_onSvg(), size: CGSize(width: 60, height: 60))!.uiImage )
         
         self.myProfileViewController.tabBarItem = UITabBarItem(title: nil, image: SVGKImage.customSVGKImage(contentsOf: R.file.my_profileSvg(), size: CGSize(width: 60, height: 60))!.uiImage , selectedImage: SVGKImage.customSVGKImage(contentsOf: R.file.my_profile_onSvg(), size: CGSize(width: 60, height: 60))!.uiImage )
-        self.setViewControllers( [testVc, self.myProfileViewController], animated: true )
+        self.setViewControllers( [self.myProfileViewController], animated: true )
         
         self.tabBar.tintColor = UIColor(hex: "FF4D00")
         self.tabBar.barTintColor = .white
