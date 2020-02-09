@@ -35,6 +35,8 @@
 		A0BA9D5023EFEEB6004E6EEC /* comment_on.svg in Resources */ = {isa = PBXBuildFile; fileRef = A0BA9D4C23EFEEB5004E6EEC /* comment_on.svg */; };
 		A0BA9D5123EFEEB6004E6EEC /* search_on.svg in Resources */ = {isa = PBXBuildFile; fileRef = A0BA9D4D23EFEEB5004E6EEC /* search_on.svg */; };
 		A0BA9D5323EFF22C004E6EEC /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BA9D5223EFF22C004E6EEC /* UIColor+Hex.swift */; };
+		A0BA9D5623EFF528004E6EEC /* Comfortaa-VariableFont-wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0BA9D5523EFF3C1004E6EEC /* Comfortaa-VariableFont-wght.ttf */; };
+		A0BA9D5823EFF5F1004E6EEC /* UIFont+Family.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BA9D5723EFF5F1004E6EEC /* UIFont+Family.swift */; };
 		A0FE593523EF059000A290F4 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D6F2BF23EF02D90019D6D5 /* R.generated.swift */; };
 		A0FE593723EF0E8500A290F4 /* SVGKit+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FE593623EF0E8500A290F4 /* SVGKit+Additions.swift */; };
 		A0FE593923EF133600A290F4 /* samp.svg in Resources */ = {isa = PBXBuildFile; fileRef = A0FE593823EF133500A290F4 /* samp.svg */; };
@@ -107,6 +109,8 @@
 		A0BA9D4C23EFEEB5004E6EEC /* comment_on.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = comment_on.svg; sourceTree = "<group>"; };
 		A0BA9D4D23EFEEB5004E6EEC /* search_on.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = search_on.svg; sourceTree = "<group>"; };
 		A0BA9D5223EFF22C004E6EEC /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		A0BA9D5523EFF3C1004E6EEC /* Comfortaa-VariableFont-wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-VariableFont-wght.ttf"; sourceTree = "<group>"; };
+		A0BA9D5723EFF5F1004E6EEC /* UIFont+Family.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Family.swift"; sourceTree = "<group>"; };
 		A0D6F2BF23EF02D90019D6D5 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		A0FE593623EF0E8500A290F4 /* SVGKit+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SVGKit+Additions.swift"; sourceTree = "<group>"; };
 		A0FE593823EF133500A290F4 /* samp.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = samp.svg; sourceTree = "<group>"; };
@@ -257,6 +261,7 @@
 				A01A960823EEFAE700844C13 /* UIViewController+AlertUtil.swift */,
 				A0FE593623EF0E8500A290F4 /* SVGKit+Additions.swift */,
 				A0BA9D5223EFF22C004E6EEC /* UIColor+Hex.swift */,
+				A0BA9D5723EFF5F1004E6EEC /* UIFont+Family.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -277,6 +282,7 @@
 				A0D6F2BF23EF02D90019D6D5 /* R.generated.swift */,
 				A09E168823EE850C003407FA /* Assets.xcassets */,
 				A01A960C23EEFE0A00844C13 /* SVG */,
+				A0BA9D5423EFF3AD004E6EEC /* Font */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -375,6 +381,14 @@
 				A0BA9D3A23EFE8CF004E6EEC /* MyProfile */,
 			);
 			path = TabView;
+			sourceTree = "<group>";
+		};
+		A0BA9D5423EFF3AD004E6EEC /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				A0BA9D5523EFF3C1004E6EEC /* Comfortaa-VariableFont-wght.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		A0FE594223EF251D00A290F4 /* RegisterOrLogin */ = {
@@ -504,6 +518,7 @@
 				A09E168C23EE850C003407FA /* LaunchScreen.storyboard in Resources */,
 				A0BA9D4923EFED01004E6EEC /* my_profile.svg in Resources */,
 				A0FE594123EF212800A290F4 /* register.svg in Resources */,
+				A0BA9D5623EFF528004E6EEC /* Comfortaa-VariableFont-wght.ttf in Resources */,
 				A0FE594823EF282A00A290F4 /* twitter.svg in Resources */,
 				A0FE593923EF133600A290F4 /* samp.svg in Resources */,
 				A0BA9D4623EFED01004E6EEC /* search.svg in Resources */,
@@ -673,6 +688,7 @@
 				A01A960623EEAAA100844C13 /* InitRegistViewReactor.swift in Sources */,
 				A0FE594623EF259A00A290F4 /* RegisterOrLoginViewController.swift in Sources */,
 				A09E168223EE8507003407FA /* SceneDelegate.swift in Sources */,
+				A0BA9D5823EFF5F1004E6EEC /* UIFont+Family.swift in Sources */,
 				A01A960323EEA73E00844C13 /* AuthRepository.swift in Sources */,
 				A0FE593523EF059000A290F4 /* R.generated.swift in Sources */,
 				A01A960023EEA73400844C13 /* AuthRepositoryOnFirebase.swift in Sources */,
