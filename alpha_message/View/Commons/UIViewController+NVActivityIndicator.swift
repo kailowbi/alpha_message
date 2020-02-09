@@ -12,13 +12,12 @@ import SnapKit
 
 protocol UIViewControllerJoinLoading:UIViewController {
     var activityIndicatorBaseView: UIView? { get set }
-//    var activityIndicatorView: NVActivityIndicatorView? { get set }
 }
 
 extension UIViewControllerJoinLoading {
     
     func startLoading (){
-        let activityIndicatorView = NVActivityIndicatorView(frame: CGRect.zero, type: .ballClipRotatePulse, color: .blue, padding: 0)
+        let activityIndicatorView = NVActivityIndicatorView(frame: CGRect.zero, type: .ballClipRotatePulse, color: .black , padding: 0)
         activityIndicatorBaseView = UIView()
         
         guard let activityIndicatorBaseView = activityIndicatorBaseView else { return }

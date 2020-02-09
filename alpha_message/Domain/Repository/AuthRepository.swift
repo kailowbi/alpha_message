@@ -12,5 +12,6 @@ protocol AuthRepository {
     func currentUser() -> Observable<User>
     func registor() -> Observable<Void>
     func twitterLogin() -> Observable<Void>
-
+    
+    func logout() -> Observable<Void>
 }

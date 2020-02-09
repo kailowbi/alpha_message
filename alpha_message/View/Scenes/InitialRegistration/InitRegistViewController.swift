@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import ReactorKit
 import SnapKit
 import Then
 import SVGKit
@@ -16,7 +17,7 @@ import Swinject
 
 class InitRegistViewController: UIViewController {
 
-    let disposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
     
 //    let bgView = UIView()
     let mainImageLogo = UIImageView(image: SVGKImage(contentsOf: R.file.logoSvg() ).uiImage )
@@ -80,7 +81,24 @@ class InitRegistViewController: UIViewController {
         }).disposed(by: self.disposeBag)
     }
     
-
 }
 
-
+extension InitRegistViewController: View, TransitionViewController {
+    func bind(reactor: InitRegistViewReactor) {
+        
+        self.rx.viewDidAppear.map{ _ in
+            return Reactor.Action.initialize
+        }
+        .bind(to: reactor.action)
+        .disposed(by: self.disposeBag)
+        
+        
+        reactor.state.map{ $0.loginSkip }
+            .distinctUntilChanged()
+            .filter{ $0 == true }
+            .subscribe(onNext: { [unowned self] loginSkip in
+                self.transitionMain()
+            }).disposed(by: self.disposeBag)
+        
+    }
+}

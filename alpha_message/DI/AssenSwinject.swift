@@ -39,7 +39,9 @@ extension Container {
     class ViewAssembly: Assembly {
         func assemble(container: Container) {
             container.register(InitRegistViewController.self) { r in
-                return InitRegistViewController()
+                let vc = InitRegistViewController()
+                vc.reactor = r.resolve(InitRegistViewReactor.self)!
+                return vc
             }
             container.register(RegisterOrLoginViewController.self) { r in
                 let vc = RegisterOrLoginViewController()
@@ -47,7 +49,10 @@ extension Container {
                 return vc
             }
             container.register(TabViewController.self) { r in
-                return TabViewController(myPageViewController: r.resolve(MyProfileViewController.self)!)
+                return TabViewController(
+                    chatViewViewController: r.resolve(ChatViewViewController.self)!,
+                    myPageViewController: r.resolve(MyProfileViewController.self)!
+                )
             }
             container.register(ChatViewViewController.self) { r in
                 let vc = ChatViewViewController()

@@ -15,15 +15,19 @@ class MyProfileViewReactor: Reactor {
     
     enum Action {
         case initialize
+        case logout
     }
     struct State {
-       var user : User?
+        var user : User?
+        var logouted : Bool
     }
     let initialState: State = State(
-        user: nil
+        user: nil,
+        logouted: false
     )
     enum Mutation {
         case setUser(user:User?)
+        case setLogouted(_ logouted:Bool)
     }
     
     init(authRepository:AuthRepository) {
@@ -36,6 +40,10 @@ class MyProfileViewReactor: Reactor {
             return self.authRepository.currentUser().flatMap { user -> Observable<Mutation> in
                 return Observable.just(.setUser(user: user))
             }
+        case .logout:
+            return self.authRepository.logout().flatMap { _ -> Observable<Mutation> in
+                return Observable.just(.setLogouted(true))
+            }
         }
     }
     
@@ -45,6 +53,8 @@ class MyProfileViewReactor: Reactor {
         switch mutation {
         case .setUser(let user):
             newState.user = user
+        case .setLogouted(let logouted):
+            newState.logouted = logouted
         }
         
         return newState

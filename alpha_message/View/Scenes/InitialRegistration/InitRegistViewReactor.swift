@@ -17,11 +17,14 @@ class InitRegistViewReactor: Reactor {
         case initialize
     }
     struct State {
-       var i : Int
+       var loginSkip : Bool
     }
     let initialState: State = State(
-        i: 0
+        loginSkip: false
     )
+    enum Mutation{
+        case setLoginSkip(_ skip:Bool)
+    }
     
     init(authRepository:AuthRepository) {
         self.authRepository = authRepository
@@ -30,15 +33,18 @@ class InitRegistViewReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .initialize:
-//            self.authRepository.login()
-            return Observable.empty()
+            return self.authRepository.currentUser().flatMap { user -> Observable<Mutation> in
+                return Observable.just(.setLoginSkip(true))
+            }
         }
-        return Observable.empty()
     }
     
-    func reduce(state: State, mutation: Action) -> State {
+    func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
-        
+        switch mutation {
+        case .setLoginSkip(let skip):
+            newState.loginSkip = skip
+        }
         
         return newState
     }

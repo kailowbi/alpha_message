@@ -41,6 +41,8 @@
 		A0BA9D5F23F03E9E004E6EEC /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BA9D5D23F03E4D004E6EEC /* ChatViewController.swift */; };
 		A0BA9D6023F03EA0004E6EEC /* ChatViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BA9D5E23F03E4E004E6EEC /* ChatViewReactor.swift */; };
 		A0BA9D6223F040A6004E6EEC /* UIViewController+NVActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BA9D6123F040A6004E6EEC /* UIViewController+NVActivityIndicator.swift */; };
+		A0BA9D6423F05156004E6EEC /* Logout.svg in Resources */ = {isa = PBXBuildFile; fileRef = A0BA9D6323F05156004E6EEC /* Logout.svg */; };
+		A0BA9D6723F05A1E004E6EEC /* UIViewController+Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BA9D6623F05A1E004E6EEC /* UIViewController+Transition.swift */; };
 		A0FE593523EF059000A290F4 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D6F2BF23EF02D90019D6D5 /* R.generated.swift */; };
 		A0FE593723EF0E8500A290F4 /* SVGKit+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FE593623EF0E8500A290F4 /* SVGKit+Additions.swift */; };
 		A0FE593923EF133600A290F4 /* samp.svg in Resources */ = {isa = PBXBuildFile; fileRef = A0FE593823EF133500A290F4 /* samp.svg */; };
@@ -119,6 +121,8 @@
 		A0BA9D5D23F03E4D004E6EEC /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		A0BA9D5E23F03E4E004E6EEC /* ChatViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewReactor.swift; sourceTree = "<group>"; };
 		A0BA9D6123F040A6004E6EEC /* UIViewController+NVActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NVActivityIndicator.swift"; sourceTree = "<group>"; };
+		A0BA9D6323F05156004E6EEC /* Logout.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Logout.svg; sourceTree = "<group>"; };
+		A0BA9D6623F05A1E004E6EEC /* UIViewController+Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Transition.swift"; sourceTree = "<group>"; };
 		A0D6F2BF23EF02D90019D6D5 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		A0FE593623EF0E8500A290F4 /* SVGKit+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SVGKit+Additions.swift"; sourceTree = "<group>"; };
 		A0FE593823EF133500A290F4 /* samp.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = samp.svg; sourceTree = "<group>"; };
@@ -267,6 +271,7 @@
 		A01A960723EEFAD200844C13 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				A0BA9D6523F059DC004E6EEC /* Transition */,
 				A01A960823EEFAE700844C13 /* UIViewController+AlertUtil.swift */,
 				A0BA9D6123F040A6004E6EEC /* UIViewController+NVActivityIndicator.swift */,
 				A0FE593623EF0E8500A290F4 /* SVGKit+Additions.swift */,
@@ -316,6 +321,7 @@
 				A0BA9D4A23EFEEB4004E6EEC /* my_profile_on.svg */,
 				A0BA9D4B23EFEEB5004E6EEC /* new_on.svg */,
 				A0BA9D4D23EFEEB5004E6EEC /* search_on.svg */,
+				A0BA9D6323F05156004E6EEC /* Logout.svg */,
 			);
 			path = SVG;
 			sourceTree = "<group>";
@@ -409,6 +415,14 @@
 				A0BA9D5E23F03E4E004E6EEC /* ChatViewReactor.swift */,
 			);
 			path = Chat;
+			sourceTree = "<group>";
+		};
+		A0BA9D6523F059DC004E6EEC /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				A0BA9D6623F05A1E004E6EEC /* UIViewController+Transition.swift */,
+			);
+			path = Transition;
 			sourceTree = "<group>";
 		};
 		A0FE594223EF251D00A290F4 /* RegisterOrLogin */ = {
@@ -547,6 +561,7 @@
 				A09E168923EE850C003407FA /* Assets.xcassets in Resources */,
 				A0FE593B23EF145800A290F4 /* logo.svg in Resources */,
 				A0FE594A23EF284B00A290F4 /* title.svg in Resources */,
+				A0BA9D6423F05156004E6EEC /* Logout.svg in Resources */,
 				A0FE593D23EF158100A290F4 /* rectangle.jpg in Resources */,
 				A0BA9D5123EFEEB6004E6EEC /* search_on.svg in Resources */,
 				A0BA9D5023EFEEB6004E6EEC /* comment_on.svg in Resources */,
@@ -703,6 +718,7 @@
 				A0BA9D5323EFF22C004E6EEC /* UIColor+Hex.swift in Sources */,
 				A0FE593723EF0E8500A290F4 /* SVGKit+Additions.swift in Sources */,
 				A01A960923EEFB1200844C13 /* UIViewController+AlertUtil.swift in Sources */,
+				A0BA9D6723F05A1E004E6EEC /* UIViewController+Transition.swift in Sources */,
 				A09E168023EE8507003407FA /* AppDelegate.swift in Sources */,
 				A0BA9D4123EFEA90004E6EEC /* MyProfileViewReactor.swift in Sources */,
 				A01A960623EEAAA100844C13 /* InitRegistViewReactor.swift in Sources */,

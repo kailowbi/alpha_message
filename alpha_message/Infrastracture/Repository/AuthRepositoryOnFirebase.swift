@@ -72,5 +72,22 @@ class AuthRepositoryOnFirebase : AuthRepository {
    
     }
     
+    func logout() -> Observable<Void> {
+        return Observable.create { [unowned self] observer in
+            
+            do {
+                try self.firebaseAuth.signOut()
+                observer.onNext(())
+                observer.onCompleted()
+            } catch let error as NSError {
+                observer.onError(error)
+                observer.onCompleted()
+            }
+            
+            
+            return Disposables.create {}
+        }
+        //return self.firebaseAuth.rx.signIn(
+    }
     
 }

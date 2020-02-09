@@ -44,7 +44,7 @@ class RegisterOrLoginViewController: UIViewController, UIViewControllerJoinLoadi
     }
 }
 
-extension RegisterOrLoginViewController : View {
+extension RegisterOrLoginViewController : View, TransitionViewController {
     func bind(reactor: RegisterOrLoginViewReactor) {
      
         twitterButton.rx.tap.map{
@@ -69,15 +69,7 @@ extension RegisterOrLoginViewController : View {
             .subscribe(onNext: { [unowned self] logined in
                 
                 self.dismiss(animated: true) {
-                    if let window = SceneDelegate.shared?.window{
-                        // A mask of options indicating how you want to perform the animations.
-                        let options: UIView.AnimationOptions = .transitionCrossDissolve
-                        
-                        SceneDelegate.shared?.window?.rootViewController = Container.shared.resolve(TabViewController.self)!
-                        
-                        UIView.transition(with: window, duration: 0.5, options: options, animations: {}, completion:nil)
-                    }
-                    
+                    self.transitionMain()
                 }
 
             }).disposed(by: self.disposeBag)
