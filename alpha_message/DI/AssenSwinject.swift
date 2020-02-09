@@ -8,6 +8,8 @@
 
 import Swinject
 
+import FirebaseAuth
+
 //class AssenSwinject {
 //    let container = Container()
 ////    container.register(AuthRepository.self) { r in
@@ -25,7 +27,8 @@ extension Container {
         assembler.apply(assemblies: [
             ViewAssembly(),
             ReactorAssembly(),
-            RepositoryAssembly()
+            RepositoryAssembly(),
+            ThirdpartyAssembly()
         ])
         
         return container
@@ -58,9 +61,16 @@ extension Container {
     class RepositoryAssembly: Assembly {
         func assemble(container: Container) {
             container.register(AuthRepository.self) { r in
-                return AuthRepositoryOnFirebase()
+                return AuthRepositoryOnFirebase(auth: r.resolve(Auth.self)! )
             }
         }
-        
+    }
+    
+    class ThirdpartyAssembly: Assembly {
+        func assemble(container: Container) {
+            container.register(Auth.self) { r in
+                return Auth.auth()
+            }
+        }
     }
 }
