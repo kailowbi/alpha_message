@@ -104,7 +104,8 @@ extension RegisterOrLoginViewController : View {
             .filter{ $0 == true }
             .subscribe(onNext: { logined in
                 print("testset")
-                               
+                             
+                
                 
             }).disposed(by: self.disposeBag)
     }

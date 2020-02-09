@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // override RootViewContrroller
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = Container.shared.resolve(InitRegistViewController.self)!
+            window.rootViewController = Container.shared.resolve(TabViewController.self)!
             self.window = window
             window.makeKeyAndVisible()
         }

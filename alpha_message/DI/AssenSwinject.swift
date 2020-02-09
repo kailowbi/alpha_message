@@ -46,6 +46,14 @@ extension Container {
                 vc.reactor = r.resolve(RegisterOrLoginViewReactor.self)!
                 return vc
             }
+            container.register(TabViewController.self) { r in
+                return TabViewController(myPageViewController: r.resolve(MyProfileViewController.self)!)
+            }
+            container.register(MyProfileViewController.self) { r in
+                let vc = MyProfileViewController()
+                vc.reactor = r.resolve(MyProfileViewReactor.self)!
+                return vc
+            }
         }
     }
     
@@ -56,6 +64,9 @@ extension Container {
             }
             container.register(RegisterOrLoginViewReactor.self) { r in
                 return RegisterOrLoginViewReactor(authRepository: r.resolve(AuthRepository.self)!)
+            }
+            container.register(MyProfileViewReactor.self) { r in
+                return MyProfileViewReactor(authRepository: r.resolve(AuthRepository.self)!)
             }
         }
     }
