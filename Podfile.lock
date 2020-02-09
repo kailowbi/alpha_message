@@ -167,16 +167,6 @@ PODS:
   - CocoaLumberjack (3.6.1):
     - CocoaLumberjack/Core (= 3.6.1)
   - CocoaLumberjack/Core (3.6.1)
-  - FBSDKCoreKit (6.0.0):
-    - FBSDKCoreKit/Basics (= 6.0.0)
-    - FBSDKCoreKit/Core (= 6.0.0)
-  - FBSDKCoreKit/Basics (6.0.0)
-  - FBSDKCoreKit/Core (6.0.0):
-    - FBSDKCoreKit/Basics
-  - FBSDKLoginKit (6.0.0):
-    - FBSDKLoginKit/Login (= 6.0.0)
-  - FBSDKLoginKit/Login (6.0.0):
-    - FBSDKCoreKit (~> 6.0.0)
   - Firebase/Auth (6.16.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 6.4.3)
@@ -294,6 +284,9 @@ PODS:
     - nanopb/encode (= 0.3.9011)
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
+  - NVActivityIndicatorView (4.8.0):
+    - NVActivityIndicatorView/Presenter (= 4.8.0)
+  - NVActivityIndicatorView/Presenter (4.8.0)
   - PromisesObjC (1.2.8)
   - Protobuf (3.11.3)
   - R.swift (5.1.0):
@@ -361,10 +354,9 @@ PODS:
   - Then (2.6.0)
 
 DEPENDENCIES:
-  - FBSDKCoreKit
-  - FBSDKLoginKit
   - Firebase/Auth
   - Firebase/Firestore
+  - NVActivityIndicatorView
   - R.swift
   - ReactorKit
   - RxCocoa
@@ -381,8 +373,6 @@ SPEC REPOS:
     - abseil
     - BoringSSL-GRPC
     - CocoaLumberjack
-    - FBSDKCoreKit
-    - FBSDKLoginKit
     - Firebase
     - FirebaseABTesting
     - FirebaseAnalyticsInterop
@@ -406,6 +396,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - NVActivityIndicatorView
     - PromisesObjC
     - Protobuf
     - R.swift
@@ -431,8 +422,6 @@ SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
   CocoaLumberjack: b17ae15142558d08bbacf69775fa10c4abbebcc9
-  FBSDKCoreKit: fe738b172590e622c86735b45e20d196848b54df
-  FBSDKLoginKit: fa57df1b967fe0e147b25bede6ea4e9cdf4d64be
   Firebase: 497158b816d0a86fc31babbd05546fcd7e6083ff
   FirebaseABTesting: 0d10f3cdc3fa00f3f175b5b56c1003c8e888299f
   FirebaseAnalyticsInterop: 3f86269c38ae41f47afeb43ebf32a001f58fcdae
@@ -456,6 +445,7 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: cea130bbfe5a7edc8d06d3f0d17288c32ffe9925
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
+  NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
   Protobuf: 0e94afe3b47cb11876eb6aee296638711a24bf75
   R.swift: 8cbc4fc69b740305b6a17c8a8ed968eb788962d9
@@ -477,6 +467,6 @@ SPEC CHECKSUMS:
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
   Then: 90cd104fd951cec1980a03f57704ad8f784d4d79
 
-PODFILE CHECKSUM: 283c36fb79f645fec3889478d311d1ad342da33f
+PODFILE CHECKSUM: 5b94c47dcb3d35bba7d6c01ec1af7c1aa47e39f9
 
 COCOAPODS: 1.8.4

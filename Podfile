@@ -6,21 +6,20 @@ target 'alpha_message' do
   use_frameworks!
 
   # Pods for alpha_message
-  pod "Swinject"
-  pod "RxSwift"
-  pod "RxCocoa"
-  pod "ReactorKit"
-  pod "Then"
-  pod "SnapKit"
-  pod "Firebase/Auth"
-  pod "Firebase/Firestore"
-  pod "R.swift"
-  pod "SVGKit"
-  pod 'FBSDKCoreKit'
-  pod 'FBSDKLoginKit'
+  pod 'Swinject'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'ReactorKit'
+  pod 'Then'
+  pod 'SnapKit'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
+  pod 'R.swift'
+  pod 'SVGKit'
+  pod 'NVActivityIndicatorView'
 
-  pod "RxViewController"
-  pod "RxFirebase"
+  pod 'RxViewController'
+  pod 'RxFirebase'
 
   target 'alpha_messageTests' do
     inherit! :search_paths

@@ -38,6 +38,9 @@
 		A0BA9D5623EFF528004E6EEC /* Comfortaa-VariableFont-wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0BA9D5523EFF3C1004E6EEC /* Comfortaa-VariableFont-wght.ttf */; };
 		A0BA9D5823EFF5F1004E6EEC /* UIFont+Family.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BA9D5723EFF5F1004E6EEC /* UIFont+Family.swift */; };
 		A0BA9D5B23F0270D004E6EEC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BA9D5A23F0270D004E6EEC /* User.swift */; };
+		A0BA9D5F23F03E9E004E6EEC /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BA9D5D23F03E4D004E6EEC /* ChatViewController.swift */; };
+		A0BA9D6023F03EA0004E6EEC /* ChatViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BA9D5E23F03E4E004E6EEC /* ChatViewReactor.swift */; };
+		A0BA9D6223F040A6004E6EEC /* UIViewController+NVActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BA9D6123F040A6004E6EEC /* UIViewController+NVActivityIndicator.swift */; };
 		A0FE593523EF059000A290F4 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D6F2BF23EF02D90019D6D5 /* R.generated.swift */; };
 		A0FE593723EF0E8500A290F4 /* SVGKit+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FE593623EF0E8500A290F4 /* SVGKit+Additions.swift */; };
 		A0FE593923EF133600A290F4 /* samp.svg in Resources */ = {isa = PBXBuildFile; fileRef = A0FE593823EF133500A290F4 /* samp.svg */; };
@@ -113,6 +116,9 @@
 		A0BA9D5523EFF3C1004E6EEC /* Comfortaa-VariableFont-wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-VariableFont-wght.ttf"; sourceTree = "<group>"; };
 		A0BA9D5723EFF5F1004E6EEC /* UIFont+Family.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Family.swift"; sourceTree = "<group>"; };
 		A0BA9D5A23F0270D004E6EEC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A0BA9D5D23F03E4D004E6EEC /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		A0BA9D5E23F03E4E004E6EEC /* ChatViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewReactor.swift; sourceTree = "<group>"; };
+		A0BA9D6123F040A6004E6EEC /* UIViewController+NVActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NVActivityIndicator.swift"; sourceTree = "<group>"; };
 		A0D6F2BF23EF02D90019D6D5 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		A0FE593623EF0E8500A290F4 /* SVGKit+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SVGKit+Additions.swift"; sourceTree = "<group>"; };
 		A0FE593823EF133500A290F4 /* samp.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = samp.svg; sourceTree = "<group>"; };
@@ -262,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				A01A960823EEFAE700844C13 /* UIViewController+AlertUtil.swift */,
+				A0BA9D6123F040A6004E6EEC /* UIViewController+NVActivityIndicator.swift */,
 				A0FE593623EF0E8500A290F4 /* SVGKit+Additions.swift */,
 				A0BA9D5223EFF22C004E6EEC /* UIColor+Hex.swift */,
 				A0BA9D5723EFF5F1004E6EEC /* UIFont+Family.swift */,
@@ -371,7 +378,6 @@
 		A0BA9D3A23EFE8CF004E6EEC /* MyProfile */ = {
 			isa = PBXGroup;
 			children = (
-				A0BA9D5C23F03E1A004E6EEC /* New Group */,
 				A0BA9D3E23EFE974004E6EEC /* MyProfileViewController.swift */,
 				A0BA9D3F23EFE974004E6EEC /* MyProfileViewReactor.swift */,
 			);
@@ -382,6 +388,7 @@
 			isa = PBXGroup;
 			children = (
 				A0BA9D3C23EFE950004E6EEC /* TabViewController.swift */,
+				A0BA9D5C23F03E1A004E6EEC /* Chat */,
 				A0BA9D3A23EFE8CF004E6EEC /* MyProfile */,
 			);
 			path = TabView;
@@ -395,11 +402,13 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
-		A0BA9D5C23F03E1A004E6EEC /* New Group */ = {
+		A0BA9D5C23F03E1A004E6EEC /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				A0BA9D5D23F03E4D004E6EEC /* ChatViewController.swift */,
+				A0BA9D5E23F03E4E004E6EEC /* ChatViewReactor.swift */,
 			);
-			path = "New Group";
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		A0FE594223EF251D00A290F4 /* RegisterOrLogin */ = {
@@ -704,7 +713,10 @@
 				A0FE593523EF059000A290F4 /* R.generated.swift in Sources */,
 				A01A960023EEA73400844C13 /* AuthRepositoryOnFirebase.swift in Sources */,
 				A0BA9D3D23EFE950004E6EEC /* TabViewController.swift in Sources */,
+				A0BA9D6023F03EA0004E6EEC /* ChatViewReactor.swift in Sources */,
 				A01A95FE23EEA72D00844C13 /* AssenSwinject.swift in Sources */,
+				A0BA9D6223F040A6004E6EEC /* UIViewController+NVActivityIndicator.swift in Sources */,
+				A0BA9D5F23F03E9E004E6EEC /* ChatViewController.swift in Sources */,
 				A0BA9D5B23F0270D004E6EEC /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

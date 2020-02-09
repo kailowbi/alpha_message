@@ -13,22 +13,18 @@ import ReactorKit
 import SnapKit
 import Then
 import SVGKit
-import FirebaseAuth
-import FBSDKCoreKit
-import FBSDKLoginKit
 import Swinject
 
-class RegisterOrLoginViewController: UIViewController {
-
+class RegisterOrLoginViewController: UIViewController, UIViewControllerJoinLoading {
+    var activityIndicatorBaseView: UIView?
+    
     var disposeBag = DisposeBag()
     
     let titles = UIImageView(image: SVGKImage(contentsOf: R.file.titleSvg() ).uiImage )
     let twitterButton = UIButton().then{
         $0.setImage(SVGKImage(contentsOf: R.file.twitterSvg()).uiImage, for: .normal)
     }
-    var provider = OAuthProvider(providerID: "twitter.com")
-
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,60 +41,27 @@ class RegisterOrLoginViewController: UIViewController {
             make.top.equalTo(titles.snp.bottom).offset(32)
             make.left.equalTo(titles.snp.left)
         }
-        
-        
-       
-        
-      
     }
-    
-
-    func twiiterLogin(){
-        provider.getCredentialWith(nil) { credential, error in
-            if error != nil {
-                // Handle error.
-                print(11)
-            }
-            
-            
-            if let credential = credential {
-               
-            }
-        }
-
-    }
-    
-    func facebookLoginOnWebview(completion: ( (_ token:String?, _ error:Error?) -> ())? = nil ) {
-        let loginManager = LoginManager()
-        loginManager.logOut()
-        loginManager.logIn(permissions: ["public_profile", "email", "user_friends",], from: self) { [unowned self] (result, error) in
-//            self.reactor?.action.onNext(.setLoading(isLoading:true))
-
-            if (error == nil){
-                if let token = result?.token {
-                    completion?(token.tokenString, nil)
-                    return
-                }else{
-                    completion?(nil, nil)
-                }
-            }else{
-                print(error!.localizedDescription)
-                completion?(nil, error)
-            }
-        }
-    }
-   
-
 }
 
 extension RegisterOrLoginViewController : View {
     func bind(reactor: RegisterOrLoginViewReactor) {
      
         twitterButton.rx.tap.map{
-            return Reactor.Action.signInByTwitter(credential: "ssss")
+            return Reactor.Action.signInByTwitter
         }
         .bind(to: reactor.action)
         .disposed(by: self.disposeBag)
+        
+        reactor.state.map { $0.loading }
+            .distinctUntilChanged()
+            .subscribe(onNext: { [unowned self] loading in
+                if loading {
+                    self.startLoading()
+                }else{
+                    self.stopLoading()
+                }
+            }).disposed(by: self.disposeBag)
         
         reactor.state.map { $0.logined }
             .distinctUntilChanged()

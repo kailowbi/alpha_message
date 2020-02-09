@@ -7,7 +7,6 @@
 //  Copyright © 2018年 seiha i. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 //メッセージ一覧

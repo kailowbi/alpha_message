@@ -8,7 +8,6 @@
 
 import RxSwift
 import ReactorKit
-import FirebaseAuth
 
 class RegisterOrLoginViewReactor: Reactor {
         
@@ -16,16 +15,19 @@ class RegisterOrLoginViewReactor: Reactor {
     
     enum Action {
         case initialize
-        case signInByTwitter(credential:String)
+        case signInByTwitter
     }
     struct State {
-       var logined : Bool
+        var logined : Bool
+        var loading : Bool
     }
     let initialState: State = State(
-        logined: false
+        logined: false,
+        loading: false
     )
     enum Mutation{
         case setLogined(logined:Bool)
+        case setLoading(_ loading:Bool)
     }
     
     init(authRepository:AuthRepository) {
@@ -35,15 +37,21 @@ class RegisterOrLoginViewReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .initialize:
-//            self.authRepository.login()
             return Observable.empty()
-        case .signInByTwitter(let credential):
-            return self.authRepository.twitterLogin().flatMap { _ -> Observable<Mutation> in
-                
-                return Observable.just(.setLogined(logined: true))
-           }
+        case .signInByTwitter:
+            
+            return Observable.concat(
+                Observable.just(.setLoading(true)),
+                self.authRepository.twitterLogin().flatMap { _ -> Observable<Mutation> in
+                    return Observable.concat(
+                        Observable.just(.setLogined(logined: true)),
+                        Observable.just(.setLoading(false))
+                    )
+                }.catchError({ error in
+                    return Observable.just(.setLoading(false))
+                })
+            )
         }
-        return Observable.empty()
     }
     
     func reduce(state: State, mutation: Mutation) -> RegisterOrLoginViewReactor.State {
@@ -52,6 +60,8 @@ class RegisterOrLoginViewReactor: Reactor {
         switch mutation {
         case .setLogined(let logined):
             newState.logined = logined
+        case .setLoading(let loading):
+            newState.loading = loading
         }
         
         return newState
