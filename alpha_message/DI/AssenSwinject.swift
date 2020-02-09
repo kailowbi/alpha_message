@@ -38,6 +38,9 @@ extension Container {
             container.register(InitRegistViewController.self) { r in
                 return InitRegistViewController()
             }
+            container.register(RegisterOrLoginViewController.self) { r in
+                return RegisterOrLoginViewController()
+            }
         }
     }
     
@@ -45,6 +48,9 @@ extension Container {
         func assemble(container: Container) {
             container.register(InitRegistViewReactor.self) { r in
                 return InitRegistViewReactor(authRepository: r.resolve(AuthRepository.self)!)
+            }
+            container.register(RegisterOrLoginViewReactor.self) { r in
+                return RegisterOrLoginViewReactor(authRepository: r.resolve(AuthRepository.self)!)
             }
         }
     }

@@ -26,8 +26,14 @@
 		A0FE593523EF059000A290F4 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D6F2BF23EF02D90019D6D5 /* R.generated.swift */; };
 		A0FE593723EF0E8500A290F4 /* SVGKit+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FE593623EF0E8500A290F4 /* SVGKit+Additions.swift */; };
 		A0FE593923EF133600A290F4 /* samp.svg in Resources */ = {isa = PBXBuildFile; fileRef = A0FE593823EF133500A290F4 /* samp.svg */; };
-		A0FE593B23EF145800A290F4 /* Logo.svg in Resources */ = {isa = PBXBuildFile; fileRef = A0FE593A23EF145700A290F4 /* Logo.svg */; };
-		A0FE593D23EF158100A290F4 /* Rectangle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A0FE593C23EF158100A290F4 /* Rectangle.jpg */; };
+		A0FE593B23EF145800A290F4 /* logo.svg in Resources */ = {isa = PBXBuildFile; fileRef = A0FE593A23EF145700A290F4 /* logo.svg */; };
+		A0FE593D23EF158100A290F4 /* rectangle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A0FE593C23EF158100A290F4 /* rectangle.jpg */; };
+		A0FE594023EF212800A290F4 /* login.svg in Resources */ = {isa = PBXBuildFile; fileRef = A0FE593E23EF212800A290F4 /* login.svg */; };
+		A0FE594123EF212800A290F4 /* register.svg in Resources */ = {isa = PBXBuildFile; fileRef = A0FE593F23EF212800A290F4 /* register.svg */; };
+		A0FE594523EF259800A290F4 /* RegisterOrLoginViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FE594323EF254500A290F4 /* RegisterOrLoginViewReactor.swift */; };
+		A0FE594623EF259A00A290F4 /* RegisterOrLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FE594423EF254500A290F4 /* RegisterOrLoginViewController.swift */; };
+		A0FE594823EF282A00A290F4 /* twitter.svg in Resources */ = {isa = PBXBuildFile; fileRef = A0FE594723EF282A00A290F4 /* twitter.svg */; };
+		A0FE594A23EF284B00A290F4 /* title.svg in Resources */ = {isa = PBXBuildFile; fileRef = A0FE594923EF284A00A290F4 /* title.svg */; };
 		ACB7352D4FBFAD7656900A45 /* Pods_alpha_messageTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03534E12DC8326841C4671D1 /* Pods_alpha_messageTests.framework */; };
 		D348F6F13091997155CD2975 /* Pods_alpha_message.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEBD7CBAE45DE8D29FE8736A /* Pods_alpha_message.framework */; };
 /* End PBXBuildFile section */
@@ -80,8 +86,14 @@
 		A0D6F2BF23EF02D90019D6D5 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		A0FE593623EF0E8500A290F4 /* SVGKit+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SVGKit+Additions.swift"; sourceTree = "<group>"; };
 		A0FE593823EF133500A290F4 /* samp.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = samp.svg; sourceTree = "<group>"; };
-		A0FE593A23EF145700A290F4 /* Logo.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Logo.svg; path = ../../../../../../../Users/aeaells/Downloads/Logo.svg; sourceTree = "<group>"; };
-		A0FE593C23EF158100A290F4 /* Rectangle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Rectangle.jpg; sourceTree = "<group>"; };
+		A0FE593A23EF145700A290F4 /* logo.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = logo.svg; path = ../../../../../../../Users/aeaells/Downloads/logo.svg; sourceTree = "<group>"; };
+		A0FE593C23EF158100A290F4 /* rectangle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rectangle.jpg; sourceTree = "<group>"; };
+		A0FE593E23EF212800A290F4 /* login.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = login.svg; sourceTree = "<group>"; };
+		A0FE593F23EF212800A290F4 /* register.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = register.svg; sourceTree = "<group>"; };
+		A0FE594323EF254500A290F4 /* RegisterOrLoginViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterOrLoginViewReactor.swift; sourceTree = "<group>"; };
+		A0FE594423EF254500A290F4 /* RegisterOrLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterOrLoginViewController.swift; sourceTree = "<group>"; };
+		A0FE594723EF282A00A290F4 /* twitter.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = twitter.svg; sourceTree = "<group>"; };
+		A0FE594923EF284A00A290F4 /* title.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = title.svg; sourceTree = "<group>"; };
 		B220EB373ED83E80D8C33F0A /* Pods-alpha_message-alpha_messageUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alpha_message-alpha_messageUITests.debug.xcconfig"; path = "Target Support Files/Pods-alpha_message-alpha_messageUITests/Pods-alpha_message-alpha_messageUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B62E8684AD1B532887913F8D /* Pods-alpha_message-alpha_messageUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alpha_message-alpha_messageUITests.release.xcconfig"; path = "Target Support Files/Pods-alpha_message-alpha_messageUITests/Pods-alpha_message-alpha_messageUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DEBD7CBAE45DE8D29FE8736A /* Pods_alpha_message.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_alpha_message.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -228,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				A01A95DC23EE987000844C13 /* InitialRegistration */,
+				A0FE594223EF251D00A290F4 /* RegisterOrLogin */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -245,10 +258,14 @@
 		A01A960C23EEFE0A00844C13 /* SVG */ = {
 			isa = PBXGroup;
 			children = (
-				A0FE593A23EF145700A290F4 /* Logo.svg */,
+				A0FE593A23EF145700A290F4 /* logo.svg */,
 				A0FE593823EF133500A290F4 /* samp.svg */,
-				A0FE593C23EF158100A290F4 /* Rectangle.jpg */,
+				A0FE593C23EF158100A290F4 /* rectangle.jpg */,
 				A01A960D23EEFE5100844C13 /* Rectangle.svg */,
+				A0FE593E23EF212800A290F4 /* login.svg */,
+				A0FE593F23EF212800A290F4 /* register.svg */,
+				A0FE594723EF282A00A290F4 /* twitter.svg */,
+				A0FE594923EF284A00A290F4 /* title.svg */,
 			);
 			path = SVG;
 			sourceTree = "<group>";
@@ -306,6 +323,15 @@
 				A09E16A323EE850E003407FA /* Info.plist */,
 			);
 			path = alpha_messageUITests;
+			sourceTree = "<group>";
+		};
+		A0FE594223EF251D00A290F4 /* RegisterOrLogin */ = {
+			isa = PBXGroup;
+			children = (
+				A0FE594423EF254500A290F4 /* RegisterOrLoginViewController.swift */,
+				A0FE594323EF254500A290F4 /* RegisterOrLoginViewReactor.swift */,
+			);
+			path = RegisterOrLogin;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -418,13 +444,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0FE594023EF212800A290F4 /* login.svg in Resources */,
 				A01A960E23EEFE5100844C13 /* Rectangle.svg in Resources */,
 				A09E168C23EE850C003407FA /* LaunchScreen.storyboard in Resources */,
+				A0FE594123EF212800A290F4 /* register.svg in Resources */,
+				A0FE594823EF282A00A290F4 /* twitter.svg in Resources */,
 				A0FE593923EF133600A290F4 /* samp.svg in Resources */,
 				A01A95FC23EEA61000844C13 /* GoogleService-Info.plist in Resources */,
 				A09E168923EE850C003407FA /* Assets.xcassets in Resources */,
-				A0FE593B23EF145800A290F4 /* Logo.svg in Resources */,
-				A0FE593D23EF158100A290F4 /* Rectangle.jpg in Resources */,
+				A0FE593B23EF145800A290F4 /* logo.svg in Resources */,
+				A0FE594A23EF284B00A290F4 /* title.svg in Resources */,
+				A0FE593D23EF158100A290F4 /* rectangle.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,10 +603,12 @@
 			files = (
 				A09E168423EE8507003407FA /* InitRegistViewController.swift in Sources */,
 				A01A960423EEA73E00844C13 /* MessageDataRepository.swift in Sources */,
+				A0FE594523EF259800A290F4 /* RegisterOrLoginViewReactor.swift in Sources */,
 				A0FE593723EF0E8500A290F4 /* SVGKit+Additions.swift in Sources */,
 				A01A960923EEFB1200844C13 /* UIViewController+AlertUtil.swift in Sources */,
 				A09E168023EE8507003407FA /* AppDelegate.swift in Sources */,
 				A01A960623EEAAA100844C13 /* InitRegistViewReactor.swift in Sources */,
+				A0FE594623EF259A00A290F4 /* RegisterOrLoginViewController.swift in Sources */,
 				A09E168223EE8507003407FA /* SceneDelegate.swift in Sources */,
 				A01A960323EEA73E00844C13 /* AuthRepository.swift in Sources */,
 				A0FE593523EF059000A290F4 /* R.generated.swift in Sources */,
