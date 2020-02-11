@@ -23,11 +23,19 @@ class InRoomViewViewController: UIViewController {
     
     let tableView = UITableView().then{
         $0.register(RoomsTableViewCell.self, forCellReuseIdentifier: NSStringFromClass(RoomsTableViewCell.self))
-        $0.rowHeight = 100
+        $0.rowHeight = 84
     }
-    let createButton = UIButton().then{
-        $0.setImage(SVGKImage(contentsOf: R.file.createSvg()).uiImage, for: .normal)
+    var textBox:UIView!
+    let textField = PaddingTextField().then{
+        $0.backgroundColor = .white
+        $0.layer.cornerRadius = 10
+        $0.layer.borderWidth = 1
+        $0.layer.borderColor = UIColor.init(hex: "E5E5EA").cgColor
     }
+    let sendButton = UIButton().then{
+        $0.setImage(SVGKImage(contentsOf: R.file.sendSvg()).uiImage, for: .normal)
+    }
+    
     
     init(roomName:String) {
         super.init(nibName: nil, bundle: nil)
@@ -47,16 +55,37 @@ class InRoomViewViewController: UIViewController {
         self.view.backgroundColor = .white
         
         self.view.addSubview(tableView)
-        self.view.addSubview(createButton)
+        textBox = UIView().then{
+            $0.backgroundColor = UIColor.init(hex: "F9F9F9")
+            $0.layer.borderWidth = 1
+            $0.layer.borderColor = UIColor.init(hex: "E5E5EA").cgColor
+            $0.addSubview(self.textField)
+            $0.addSubview(self.sendButton)
+        }
+        self.view.addSubview(textBox)
+               
+        textField.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(13)
+            make.right.equalToSuperview().inset(56)
+            make.bottom.equalToSuperview().inset(15)
+            make.left.equalToSuperview().inset(16)
+        }
+        sendButton.snp.makeConstraints { make in
+            make.left.equalTo(textField.snp.right).offset(16)
+            make.right.equalToSuperview().inset(16)
+            make.height.equalTo(24)
+            make.centerY.equalToSuperview()
+        }
+        textBox.snp.makeConstraints { make in
+            make.height.equalTo(64)
+            make.left.right.bottom.equalTo(self.view.safeAreaLayoutGuide)
+        }
         
         tableView.snp.makeConstraints { make in
-            make.top.right.bottom.left.equalToSuperview()
+            make.top.right.left.equalToSuperview()
+            make.bottom.equalTo(textBox.snp.top)
         }
-        createButton.snp.makeConstraints { make in
-            make.width.height.equalTo(40)
-            make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(16)
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(16)
-        }
+        
         
     }
     
@@ -71,20 +100,57 @@ extension InRoomViewViewController : View {
         .bind(to: reactor.action)
         .disposed(by: self.disposeBag)
         
-        self.createButton.rx.tap.subscribe(onNext: { [unowned self] _ in
-           print(1111)
-        }).disposed(by: self.disposeBag)
+        reactor.state.map { $0.roomName }
+            .distinctUntilChanged()
+            .filter{ $0 != "" }.map{ _ in
+                Reactor.Action.setLisner
+            }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+
         
-        reactor.state.map { $0.rooms }
+        self.textField.rx.controlEvent(.editingChanged).map { [unowned self] _ in
+            return Reactor.Action.setInputMessage(message: self.textField.text ?? "" )
+        }
+        .bind(to: reactor.action)
+        .disposed(by: self.disposeBag)
+        
+        self.textField.rx.controlEvent(.editingDidEndOnExit).map { [unowned self] _ in
+            return Reactor.Action.createMessage(message: self.textField.text)
+        }
+        .bind(to: reactor.action)
+        .disposed(by: self.disposeBag)
+        
+        self.sendButton.rx.tap.map{ [unowned self] _ in
+            return Reactor.Action.createMessage(message: self.textField.text)
+        }
+        .bind(to: reactor.action)
+        .disposed(by: self.disposeBag)
+        
+        reactor.state.map { $0.messages }
             .distinctUntilChanged()
             .bind(to: self.tableView.rx.items(cellIdentifier: NSStringFromClass(RoomsTableViewCell.self), cellType: RoomsTableViewCell.self)) { row, el, cell in
-                cell.title.text = el.name
+                cell.title.text = el.message
                 cell.layoutIfNeeded()
             }
             .disposed(by: self.disposeBag)
- 
-       
         
+        reactor.state.map { $0.inputMessage }
+            .distinctUntilChanged()
+            .filter{ $0 != self.textField.text }
+            .subscribe(onNext: { [unowned self] message in
+                self.textField.text = message
+            })
+            .disposed(by: self.disposeBag)
+        
+        reactor.state.map { $0.inputMessage }
+        .distinctUntilChanged()
+        .filter{ $0 == "" }
+        .subscribe(onNext: { [unowned self] message in
+            self.textField.resignFirstResponder()
+        })
+        .disposed(by: self.disposeBag)
+       
     }
 }
 

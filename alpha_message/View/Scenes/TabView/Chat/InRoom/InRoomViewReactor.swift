@@ -15,20 +15,29 @@ class InRoomViewReactor: Reactor {
     
     enum Action {
         case initialize(roomName:String)
+        case setLisner
+        case createMessage(message:String?)
+        case setInputMessage(message:String)
     }
     struct State {
+        var initialized:Bool
         var roomName: String
-        var rooms : [Room]
+        var messages : [Message]
         var roomCreated : Bool
+        var inputMessage: String
     }
     let initialState: State = State(
+        initialized: false,
         roomName: "",
-        rooms: [],
-        roomCreated: false
+        messages: [],
+        roomCreated: false,
+        inputMessage: ""
     )
     enum Mutation {
         case initialize
+        case setMessages(_ messages:[Message])
         case setRoomName(_ roomName:String)
+        case setInputMessage(_ message:String)
     }
     
     init(messageDataRepository:MessageDataRepository) {
@@ -38,11 +47,26 @@ class InRoomViewReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .initialize(let roomName):
-            
             return Observable.just(.setRoomName(roomName))
             
+        case .setLisner:
+            return self.messageDataRepository.attachmentMessageListener(roomName: self.currentState.roomName) { callback -> Observable<Mutation> in
+                
+                return Observable.just(.setMessages(callback))
+            }
             
-            //return self.messageDataRepository.
+        case .setInputMessage(let message):
+            return Observable.just(.setInputMessage(message))
+            
+        case .createMessage(let m):
+            if let message = m {
+                return self.messageDataRepository.createMessage(roomName: self.currentState.roomName, message: message)
+                    .flatMap{ _ -> Observable<Mutation> in
+                        return Observable.just(.setInputMessage(""))
+                }
+            }else{
+                return Observable.empty()
+            }
         }
     }
     
@@ -54,7 +78,10 @@ class InRoomViewReactor: Reactor {
             newState = initialState
         case .setRoomName(let name):
             newState.roomName = name
-     
+        case .setInputMessage(let message):
+            newState.inputMessage = message
+        case .setMessages(let messages):
+            newState.messages = messages
         }
         
         return newState

@@ -13,4 +13,8 @@ protocol MessageDataRepository {
     
     func getTest() -> Observable<[Room]>
     func checkAndCreate(roomName:String) -> Observable<Void>
+    
+    func createMessage(roomName:String, message:String) -> Observable<Void>
+    
+    func attachmentMessageListener<T>(roomName:String, _ callback: @escaping ([Message]) -> Observable<T>) -> Observable<T>
 }

@@ -22,6 +22,10 @@
 		A08F35CB23F2A5F5006AAA6D /* FireStore+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08F35CA23F2A5F5006AAA6D /* FireStore+Rx.swift */; };
 		A08F35CF23F2DF37006AAA6D /* InRoomViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08F35CE23F2DF34006AAA6D /* InRoomViewReactor.swift */; };
 		A08F35D023F2DF3A006AAA6D /* InRoomViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08F35CD23F2DF34006AAA6D /* InRoomViewViewController.swift */; };
+		A08F35D223F2F3C7006AAA6D /* send.svg in Resources */ = {isa = PBXBuildFile; fileRef = A08F35D123F2F3C7006AAA6D /* send.svg */; };
+		A08F35D423F2F4D7006AAA6D /* PaddingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08F35D323F2F4D7006AAA6D /* PaddingTextField.swift */; };
+		A08F35D623F302CC006AAA6D /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08F35D523F302CB006AAA6D /* Message.swift */; };
+		A08F35D823F3166E006AAA6D /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08F35D723F3166D006AAA6D /* MessageTableViewCell.swift */; };
 		A09DAA9E23F27EDF0066CFBD /* MessageDataRepositoryOnFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09DAA9D23F27EDF0066CFBD /* MessageDataRepositoryOnFirebase.swift */; };
 		A09E168023EE8507003407FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09E167F23EE8507003407FA /* AppDelegate.swift */; };
 		A09E168223EE8507003407FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09E168123EE8507003407FA /* SceneDelegate.swift */; };
@@ -103,6 +107,10 @@
 		A08F35CA23F2A5F5006AAA6D /* FireStore+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FireStore+Rx.swift"; sourceTree = "<group>"; };
 		A08F35CD23F2DF34006AAA6D /* InRoomViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InRoomViewViewController.swift; sourceTree = "<group>"; };
 		A08F35CE23F2DF34006AAA6D /* InRoomViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InRoomViewReactor.swift; sourceTree = "<group>"; };
+		A08F35D123F2F3C7006AAA6D /* send.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = send.svg; sourceTree = "<group>"; };
+		A08F35D323F2F4D7006AAA6D /* PaddingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingTextField.swift; sourceTree = "<group>"; };
+		A08F35D523F302CB006AAA6D /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		A08F35D723F3166D006AAA6D /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		A09DAA9D23F27EDF0066CFBD /* MessageDataRepositoryOnFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDataRepositoryOnFirebase.swift; sourceTree = "<group>"; };
 		A09E167C23EE8506003407FA /* alpha_message.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = alpha_message.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A09E167F23EE8507003407FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -254,6 +262,7 @@
 			children = (
 				A0BA9D5A23F0270D004E6EEC /* User.swift */,
 				A08F35C423F29376006AAA6D /* Room.swift */,
+				A08F35D523F302CB006AAA6D /* Message.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -294,6 +303,7 @@
 				A0BA9D5223EFF22C004E6EEC /* UIColor+Hex.swift */,
 				A0BA9D5723EFF5F1004E6EEC /* UIFont+Family.swift */,
 				A08F35CA23F2A5F5006AAA6D /* FireStore+Rx.swift */,
+				A08F35D323F2F4D7006AAA6D /* PaddingTextField.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -340,6 +350,7 @@
 				A0BA9D4D23EFEEB5004E6EEC /* search_on.svg */,
 				A0BA9D6323F05156004E6EEC /* Logout.svg */,
 				A08F35C823F29C0F006AAA6D /* create.svg */,
+				A08F35D123F2F3C7006AAA6D /* send.svg */,
 			);
 			path = SVG;
 			sourceTree = "<group>";
@@ -349,6 +360,7 @@
 			children = (
 				A08F35CD23F2DF34006AAA6D /* InRoomViewViewController.swift */,
 				A08F35CE23F2DF34006AAA6D /* InRoomViewReactor.swift */,
+				A08F35D723F3166D006AAA6D /* MessageTableViewCell.swift */,
 			);
 			path = InRoom;
 			sourceTree = "<group>";
@@ -586,6 +598,7 @@
 				A0FE594823EF282A00A290F4 /* twitter.svg in Resources */,
 				A0FE593923EF133600A290F4 /* samp.svg in Resources */,
 				A0BA9D4623EFED01004E6EEC /* search.svg in Resources */,
+				A08F35D223F2F3C7006AAA6D /* send.svg in Resources */,
 				A0BA9D4F23EFEEB6004E6EEC /* new_on.svg in Resources */,
 				A01A95FC23EEA61000844C13 /* GoogleService-Info.plist in Resources */,
 				A09E168923EE850C003407FA /* Assets.xcassets in Resources */,
@@ -744,8 +757,10 @@
 				A0BA9D4023EFEA8E004E6EEC /* MyProfileViewController.swift in Sources */,
 				A09E168423EE8507003407FA /* InitRegistViewController.swift in Sources */,
 				A01A960423EEA73E00844C13 /* MessageDataRepository.swift in Sources */,
+				A08F35D623F302CC006AAA6D /* Message.swift in Sources */,
 				A08F35CF23F2DF37006AAA6D /* InRoomViewReactor.swift in Sources */,
 				A0FE594523EF259800A290F4 /* RegisterOrLoginViewReactor.swift in Sources */,
+				A08F35D823F3166E006AAA6D /* MessageTableViewCell.swift in Sources */,
 				A0BA9D5323EFF22C004E6EEC /* UIColor+Hex.swift in Sources */,
 				A0FE593723EF0E8500A290F4 /* SVGKit+Additions.swift in Sources */,
 				A01A960923EEFB1200844C13 /* UIViewController+AlertUtil.swift in Sources */,
@@ -760,6 +775,7 @@
 				A0FE593523EF059000A290F4 /* R.generated.swift in Sources */,
 				A08F35C723F297F5006AAA6D /* RoomsTableViewCell.swift in Sources */,
 				A01A960023EEA73400844C13 /* AuthRepositoryOnFirebase.swift in Sources */,
+				A08F35D423F2F4D7006AAA6D /* PaddingTextField.swift in Sources */,
 				A0BA9D3D23EFE950004E6EEC /* TabViewController.swift in Sources */,
 				A08F35CB23F2A5F5006AAA6D /* FireStore+Rx.swift in Sources */,
 				A0BA9D6023F03EA0004E6EEC /* ChatViewReactor.swift in Sources */,

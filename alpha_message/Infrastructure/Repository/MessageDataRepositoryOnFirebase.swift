@@ -57,7 +57,8 @@ class MessageDataRepositoryOnFirebase: MessageDataRepository {
             ref.rx
                 .existsInFirestore()
                 .flatMap { [unowned self] exist -> Observable<Void> in
-                    return exist ? Observable.just(()) : self.createDocuments(ref)
+                    let model = Room(name:"", date:nil)
+                    return exist ? Observable.just(()) : self.createDocuments(ref, setData: model)
             },
             createMessageCollection(roomName: roomName)
         )
@@ -71,15 +72,14 @@ class MessageDataRepositoryOnFirebase: MessageDataRepository {
             .rx
             .existsInFirestore()
             .flatMap { [unowned self] exist -> Observable<Void> in
-                
-                return exist ? Observable.just(()) : self.createDocuments(ref)
+                let model = Room(name:"", date:nil)
+                return exist ? Observable.just(()) : self.createDocuments(ref, setData: model )
         }
     }
     
     
-    private func createDocuments(_ ref: DocumentReference) -> Observable<Void> {
-        let model = Room(name:"", date:nil)
-        if let docData = try? FirestoreEncoder().encode(model) {
+    private func createDocuments<T: Encodable>(_ ref: DocumentReference, setData:T) -> Observable<Void> {
+        if let docData = try? FirestoreEncoder().encode(setData) {
             return ref.rx.setData(docData)
         }else{
             return Observable.error(NSError())
@@ -100,19 +100,44 @@ class MessageDataRepositoryOnFirebase: MessageDataRepository {
                 return Observable.just(rooms)
          }
      }
- 
     
-//    return self.firestore.collection(Collection.chats).document(Document.rooms)
-//                .rx
-//                .getDocuments()
-//                .flatMap { docs -> Observable<Bool> in
-//
-//                   for document in docs.documents {
-//                       let docId = document.documentID
-//                       let message = document.data()["message"]
-//
-//                       print(1)
-//                   }
-//
+    func createMessage(roomName:String, message:String) -> Observable<Void> {
+        
+        guard let uid = self.firebaseAuth.currentUser?.uid else { return Observable.empty() }
+        
+        return self.firestore.collection(Collection.chats).document(Document.messageByRoom).collection(roomName)
+            .rx
+            .getDocuments()
+            .flatMap { docs -> Observable<Void> in
+                
+
+                let docName = "m\(String(format: "%05d", docs.count+1))"
+                let ref = self.firestore.collection(Collection.chats).document(Document.messageByRoom).collection(roomName).document(docName)
+                return ref.rx
+                    .existsInFirestore()
+                    .flatMap { [unowned self] exist -> Observable<Void> in
+                        let model = Message(message: message, /*date: Date(),*/ from: uid)
+                        return exist ? Observable.just(()) : self.createDocuments(ref, setData: model)
+                }
+        }
+        
+    }
+
+    func attachmentMessageListener<T>(roomName:String, _ callback: @escaping ([Message]) -> Observable<T>) -> Observable<T> {
+        let ref = self.firestore.collection(Collection.chats).document(Document.messageByRoom).collection(roomName)
+        return ref
+            .rx
+            .listen()
+            .flatMap { colection -> Observable<T> in
+                var messages:[Message] = []
+                for document in colection.documents {
+                    if let docData = try? FirestoreDecoder().decode(Message.self, from: document.data()) {
+                        messages.append(docData)
+                    }
+                }
+                
+                return callback(messages)
+        }
+    }
     
 }

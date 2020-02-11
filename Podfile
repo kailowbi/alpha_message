@@ -18,6 +18,7 @@ target 'alpha_message' do
   pod 'SVGKit'
   pod 'NVActivityIndicatorView'
   pod 'CodableFirebase'
+  pod 'IQKeyboardManagerSwift'
 
   pod 'RxViewController'
   pod 'RxFirebase'
