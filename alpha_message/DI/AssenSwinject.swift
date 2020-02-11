@@ -53,6 +53,11 @@ extension Container {
                 vc.reactor = r.resolve(ChatViewReactor.self)!
                 return nc
             }
+            container.register(InRoomViewViewController.self) { (r, roomName:String) in
+                let vc = InRoomViewViewController(roomName: roomName)
+                vc.reactor = r.resolve(InRoomViewReactor.self)!
+                return vc
+            }
             container.register(MyProfileViewController.self) { r in
                 let vc = MyProfileViewController()
                 vc.reactor = r.resolve(MyProfileViewReactor.self)!
@@ -73,6 +78,9 @@ extension Container {
             }
             container.register(ChatViewReactor.self) { r in
                 return ChatViewReactor(messageDataRepository: r.resolve(MessageDataRepository.self)!)
+            }
+            container.register(InRoomViewReactor.self) { r in
+                return InRoomViewReactor(messageDataRepository: r.resolve(MessageDataRepository.self)!)
             }
             container.register(MyProfileViewReactor.self) { r in
                 return MyProfileViewReactor(authRepository: r.resolve(AuthRepository.self)!)

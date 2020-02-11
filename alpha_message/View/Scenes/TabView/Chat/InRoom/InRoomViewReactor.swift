@@ -14,21 +14,21 @@ class InRoomViewReactor: Reactor {
     let messageDataRepository:MessageDataRepository
     
     enum Action {
-        case initialize
-        case createRoom(roomName:String)
+        case initialize(roomName:String)
     }
     struct State {
+        var roomName: String
         var rooms : [Room]
         var roomCreated : Bool
     }
     let initialState: State = State(
+        roomName: "",
         rooms: [],
         roomCreated: false
     )
     enum Mutation {
         case initialize
-        case setRooms(rooms:[Room])
-        case setRoomCreated(_ created:Bool)
+        case setRoomName(_ roomName:String)
     }
     
     init(messageDataRepository:MessageDataRepository) {
@@ -37,21 +37,12 @@ class InRoomViewReactor: Reactor {
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case .initialize:
+        case .initialize(let roomName):
             
-            return Observable.concat(
-                Observable.just(.initialize),
-                self.messageDataRepository.getTest().flatMap { rooms -> Observable<Mutation> in
-                    return Observable.just(.setRooms(rooms: rooms))
-                }
-            )
-        case .createRoom(let roomName):
-            return self.messageDataRepository.checkAndCreate(roomName:roomName).flatMap { _ -> Observable<Mutation> in
-                return Observable.concat(
-                    Observable.just(.setRoomCreated(true)),
-                    Observable.just(.setRoomCreated(false))
-                )
-            }
+            return Observable.just(.setRoomName(roomName))
+            
+            
+            //return self.messageDataRepository.
         }
     }
     
@@ -61,10 +52,9 @@ class InRoomViewReactor: Reactor {
         switch mutation {
         case .initialize:
             newState = initialState
-        case .setRooms(let rooms):
-            newState.rooms = rooms
-        case .setRoomCreated(let created):
-            newState.roomCreated = created
+        case .setRoomName(let name):
+            newState.roomName = name
+     
         }
         
         return newState

@@ -19,6 +19,7 @@ import Swinject
 class InRoomViewViewController: UIViewController {
     
     var disposeBag = DisposeBag()
+    var roomName = String()
     
     let tableView = UITableView().then{
         $0.register(RoomsTableViewCell.self, forCellReuseIdentifier: NSStringFromClass(RoomsTableViewCell.self))
@@ -27,9 +28,21 @@ class InRoomViewViewController: UIViewController {
     let createButton = UIButton().then{
         $0.setImage(SVGKImage(contentsOf: R.file.createSvg()).uiImage, for: .normal)
     }
+    
+    init(roomName:String) {
+        super.init(nibName: nil, bundle: nil)
 
+        self.roomName = roomName
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.backBarButtonItem = UIBarButtonItem().then { $0.title = nil }
         
         self.view.backgroundColor = .white
         
@@ -50,26 +63,16 @@ class InRoomViewViewController: UIViewController {
 }
 
 extension InRoomViewViewController : View {
-    func bind(reactor: ChatViewReactor) {
+    func bind(reactor: InRoomViewReactor) {
         
         self.rx.viewDidAppear.map{ _ in
-            return Reactor.Action.initialize
+            return Reactor.Action.initialize(roomName: self.roomName)
         }
         .bind(to: reactor.action)
         .disposed(by: self.disposeBag)
         
         self.createButton.rx.tap.subscribe(onNext: { [unowned self] _ in
-            self.displayAlertWithTextField(title: "Create Room", message: "Please enter an existing or new room name.", style: .alert, btns: [BtnType(title: "キャンセル"), BtnType(title: "OK")]) { index,outText in
-                switch index {
-                case 1:
-                    if let text = outText{
-                        
-                        reactor.action.onNext(.createRoom(roomName: text))
-                    }
-                default:
-                    break
-                }
-            }
+           print(1111)
         }).disposed(by: self.disposeBag)
         
         reactor.state.map { $0.rooms }
@@ -80,12 +83,7 @@ extension InRoomViewViewController : View {
             }
             .disposed(by: self.disposeBag)
  
-         reactor.state.map { $0.roomCreated }
-         .distinctUntilChanged()
-            .subscribe(onNext: { [unowned self] _ in
-                //reactor.action.onNext(.initialize)
-            })
-            .disposed(by: self.disposeBag)
+       
         
     }
 }

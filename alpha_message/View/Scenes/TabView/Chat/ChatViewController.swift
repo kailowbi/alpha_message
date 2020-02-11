@@ -46,9 +46,7 @@ class ChatViewViewController: UIViewController {
             make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).inset(16)
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(16)
         }
-        
     }
-    
 }
 
 extension ChatViewViewController : View {
@@ -66,7 +64,6 @@ extension ChatViewViewController : View {
         .bind(to: reactor.action)
         .disposed(by: self.disposeBag)
             
-        
         self.createButton.rx.tap.subscribe(onNext: { [unowned self] _ in
             self.displayAlertWithTextField(title: "Create Room", message: "Please enter an existing or new room name.", style: .alert, btns: [BtnType(title: "キャンセル"), BtnType(title: "OK")]) { index,outText in
                 switch index {
@@ -80,6 +77,11 @@ extension ChatViewViewController : View {
                 }
             }
         }).disposed(by: self.disposeBag)
+        
+        self.tableView.rx.modelSelected(Room.self)
+            .subscribe(onNext: { [unowned self] room in
+                self.navigationController?.pushViewController(Container.shared.resolve(InRoomViewViewController.self, argument: room.name!)!, animated: true)
+            }).disposed(by: self.disposeBag)
         
         reactor.state.map { $0.rooms }
             .distinctUntilChanged()
