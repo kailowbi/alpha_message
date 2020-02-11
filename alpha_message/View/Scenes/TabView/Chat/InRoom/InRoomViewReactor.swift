@@ -17,27 +17,27 @@ class InRoomViewReactor: Reactor {
         case initialize(roomName:String)
         case setLisner
         case createMessage(message:String?)
-        case setInputMessage(message:String)
+        case setInputMessage(message:String?)
     }
     struct State {
         var initialized:Bool
         var roomName: String
         var messages : [Message]
         var roomCreated : Bool
-        var inputMessage: String
+        var inputMessage: String?
     }
     let initialState: State = State(
         initialized: false,
         roomName: "",
         messages: [],
         roomCreated: false,
-        inputMessage: ""
+        inputMessage: nil
     )
     enum Mutation {
         case initialize
         case setMessages(_ messages:[Message])
         case setRoomName(_ roomName:String)
-        case setInputMessage(_ message:String)
+        case setInputMessage(_ message:String?)
     }
     
     init(messageDataRepository:MessageDataRepository) {
@@ -59,14 +59,14 @@ class InRoomViewReactor: Reactor {
             return Observable.just(.setInputMessage(message))
             
         case .createMessage(let m):
-            if let message = m {
-                return self.messageDataRepository.createMessage(roomName: self.currentState.roomName, message: message)
-                    .flatMap{ _ -> Observable<Mutation> in
-                        return Observable.just(.setInputMessage(""))
-                }
-            }else{
-                return Observable.empty()
+            guard let message = m else { return Observable.empty() }
+            if message == "" { return Observable.empty() }
+            
+            return self.messageDataRepository.createMessage(roomName: self.currentState.roomName, message: message)
+                .flatMap{ _ -> Observable<Mutation> in
+                    return Observable.just(.setInputMessage(nil))
             }
+            
         }
     }
     

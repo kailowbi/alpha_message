@@ -145,7 +145,7 @@ extension InRoomViewViewController : View {
         
         reactor.state.map { $0.inputMessage }
         .distinctUntilChanged()
-        .filter{ $0 == "" }
+        .filter{ $0 == nil }
         .subscribe(onNext: { [unowned self] message in
             self.textField.resignFirstResponder()
         })
