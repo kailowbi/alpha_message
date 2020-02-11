@@ -167,6 +167,7 @@ PODS:
   - CocoaLumberjack (3.6.1):
     - CocoaLumberjack/Core (= 3.6.1)
   - CocoaLumberjack/Core (3.6.1)
+  - CodableFirebase (0.2.1)
   - Firebase/Auth (6.16.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 6.4.3)
@@ -354,6 +355,7 @@ PODS:
   - Then (2.6.0)
 
 DEPENDENCIES:
+  - CodableFirebase
   - Firebase/Auth
   - Firebase/Firestore
   - NVActivityIndicatorView
@@ -373,6 +375,7 @@ SPEC REPOS:
     - abseil
     - BoringSSL-GRPC
     - CocoaLumberjack
+    - CodableFirebase
     - Firebase
     - FirebaseABTesting
     - FirebaseAnalyticsInterop
@@ -422,6 +425,7 @@ SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
   CocoaLumberjack: b17ae15142558d08bbacf69775fa10c4abbebcc9
+  CodableFirebase: 0bf201991eeec35eb9fcd987d271ea463cf34a80
   Firebase: 497158b816d0a86fc31babbd05546fcd7e6083ff
   FirebaseABTesting: 0d10f3cdc3fa00f3f175b5b56c1003c8e888299f
   FirebaseAnalyticsInterop: 3f86269c38ae41f47afeb43ebf32a001f58fcdae
@@ -467,6 +471,6 @@ SPEC CHECKSUMS:
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
   Then: 90cd104fd951cec1980a03f57704ad8f784d4d79
 
-PODFILE CHECKSUM: 5b94c47dcb3d35bba7d6c01ec1af7c1aa47e39f9
+PODFILE CHECKSUM: ef8f294ca9b73521f6dd52ae48c39a4900f6c872
 
 COCOAPODS: 1.8.4

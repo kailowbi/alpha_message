@@ -1,6 +1,6 @@
 //
 //  SVGKit+Additions.swift
-//  recotori-ios
+//  
 //
 //  Created by s_nakajima on 2019/02/27.
 //  Copyright © 2019 isbp. All rights reserved.

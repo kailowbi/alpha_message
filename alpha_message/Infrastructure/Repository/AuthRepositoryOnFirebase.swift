@@ -16,8 +16,8 @@ class AuthRepositoryOnFirebase : AuthRepository {
     private let firebaseAuth:Auth
     var provider = OAuthProvider(providerID: "twitter.com")
     
-    init(auth:Auth) {
-        self.firebaseAuth = auth
+    init(firebaseAuth:Auth) {
+        self.firebaseAuth = firebaseAuth
     }
     
     func currentUser() -> Observable<User> {

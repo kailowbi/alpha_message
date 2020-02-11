@@ -1,5 +1,5 @@
 //
-//  ChatViewViewController.swift
+//  InRoomViewViewController.swift
 //  alpha_message
 //
 //  Created by aeaells on 2020/02/08.
@@ -16,7 +16,7 @@ import Then
 import SVGKit
 import Swinject
 
-class ChatViewViewController: UIViewController {
+class InRoomViewViewController: UIViewController {
     
     var disposeBag = DisposeBag()
     
@@ -27,7 +27,6 @@ class ChatViewViewController: UIViewController {
     let createButton = UIButton().then{
         $0.setImage(SVGKImage(contentsOf: R.file.createSvg()).uiImage, for: .normal)
     }
-    let refreshController = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +35,6 @@ class ChatViewViewController: UIViewController {
         
         self.view.addSubview(tableView)
         self.view.addSubview(createButton)
-        tableView.refreshControl = refreshController
         
         tableView.snp.makeConstraints { make in
             make.top.right.bottom.left.equalToSuperview()
@@ -51,7 +49,7 @@ class ChatViewViewController: UIViewController {
     
 }
 
-extension ChatViewViewController : View {
+extension InRoomViewViewController : View {
     func bind(reactor: ChatViewReactor) {
         
         self.rx.viewDidAppear.map{ _ in
@@ -59,13 +57,6 @@ extension ChatViewViewController : View {
         }
         .bind(to: reactor.action)
         .disposed(by: self.disposeBag)
-        
-        self.refreshController.rx.controlEvent(.valueChanged).map{ _ in
-            return Reactor.Action.initialize
-        }
-        .bind(to: reactor.action)
-        .disposed(by: self.disposeBag)
-            
         
         self.createButton.rx.tap.subscribe(onNext: { [unowned self] _ in
             self.displayAlertWithTextField(title: "Create Room", message: "Please enter an existing or new room name.", style: .alert, btns: [BtnType(title: "キャンセル"), BtnType(title: "OK")]) { index,outText in

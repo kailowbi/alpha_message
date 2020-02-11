@@ -6,4 +6,11 @@
 //  Copyright © 2020 seiha i. All rights reserved.
 //
 
-import Foundation
+import RxSwift
+
+protocol MessageDataRepository {
+    func getMessagesFromRoom(roomName:String) -> Observable<Void>
+    
+    func getTest() -> Observable<[Room]>
+    func checkAndCreate(roomName:String) -> Observable<Void>
+}

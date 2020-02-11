@@ -1,5 +1,5 @@
 //
-//  ChatViewReactor.swift
+//  InRoomViewReactor.swift
 //  alpha_message
 //
 //  Created by aeaells on 2020/02/08.
@@ -9,7 +9,7 @@
 import RxSwift
 import ReactorKit
 
-class ChatViewReactor: Reactor {
+class InRoomViewReactor: Reactor {
 
     let messageDataRepository:MessageDataRepository
     

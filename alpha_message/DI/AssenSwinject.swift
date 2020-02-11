@@ -7,16 +7,8 @@
 //
 
 import Swinject
-
 import FirebaseAuth
-
-//class AssenSwinject {
-//    let container = Container()
-////    container.register(AuthRepository.self) { r in
-////        r.resolve(AuthRepositoryOnFirebase.self)
-////    }
-//
-//}
+import FirebaseFirestore
 
 extension Container {
     
@@ -50,14 +42,16 @@ extension Container {
             }
             container.register(TabViewController.self) { r in
                 return TabViewController(
-                    chatViewViewController: r.resolve(ChatViewViewController.self)!,
+                    chatViewViewController: r.resolve(UINavigationController.self, name: NSStringFromClass(ChatViewViewController.self))!,
                     myPageViewController: r.resolve(MyProfileViewController.self)!
                 )
             }
-            container.register(ChatViewViewController.self) { r in
+            container.register(UINavigationController.self, name: NSStringFromClass(ChatViewViewController.self)) { r in
+                let nc = UINavigationController()
                 let vc = ChatViewViewController()
+                nc.setViewControllers([vc], animated: false)
                 vc.reactor = r.resolve(ChatViewReactor.self)!
-                return vc
+                return nc
             }
             container.register(MyProfileViewController.self) { r in
                 let vc = MyProfileViewController()
@@ -78,7 +72,7 @@ extension Container {
                 return RegisterOrLoginViewReactor(authRepository: r.resolve(AuthRepository.self)!)
             }
             container.register(ChatViewReactor.self) { r in
-                return ChatViewReactor()
+                return ChatViewReactor(messageDataRepository: r.resolve(MessageDataRepository.self)!)
             }
             container.register(MyProfileViewReactor.self) { r in
                 return MyProfileViewReactor(authRepository: r.resolve(AuthRepository.self)!)
@@ -89,8 +83,13 @@ extension Container {
     class RepositoryAssembly: Assembly {
         func assemble(container: Container) {
             container.register(AuthRepository.self) { r in
-                return AuthRepositoryOnFirebase(auth: r.resolve(Auth.self)! )
+                return AuthRepositoryOnFirebase(firebaseAuth: r.resolve(Auth.self)! )
             }
+            
+            container.register(MessageDataRepository.self) { r in
+                return MessageDataRepositoryOnFirebase(firestore: r.resolve(Firestore.self)!, firebaseAuth: r.resolve(Auth.self)!)
+            }
+            
         }
     }
     
@@ -98,6 +97,9 @@ extension Container {
         func assemble(container: Container) {
             container.register(Auth.self) { r in
                 return Auth.auth()
+            }
+            container.register(Firestore.self) { r in
+                return Firestore.firestore()
             }
         }
     }
