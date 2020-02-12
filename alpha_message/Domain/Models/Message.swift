@@ -12,6 +12,7 @@ struct Message : Equatable {
     let message : String
 //    let date : Date?
     let from : String
+    let isOther : Bool?
 }
 
 extension Message: Codable {
@@ -19,5 +20,6 @@ extension Message: Codable {
         case message = "message"
 //        case date = "date"
         case from = "from"
+        case isOther = "is_other"
     }
 }

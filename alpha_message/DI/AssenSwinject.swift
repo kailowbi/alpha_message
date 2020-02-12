@@ -80,7 +80,10 @@ extension Container {
                 return ChatViewReactor(messageDataRepository: r.resolve(MessageDataRepository.self)!)
             }
             container.register(InRoomViewReactor.self) { r in
-                return InRoomViewReactor(messageDataRepository: r.resolve(MessageDataRepository.self)!)
+                return InRoomViewReactor(
+                    messageDataRepository: r.resolve(MessageDataRepository.self)!,
+                    authRepository: r.resolve(AuthRepository.self)!
+                )
             }
             container.register(MyProfileViewReactor.self) { r in
                 return MyProfileViewReactor(authRepository: r.resolve(AuthRepository.self)!)

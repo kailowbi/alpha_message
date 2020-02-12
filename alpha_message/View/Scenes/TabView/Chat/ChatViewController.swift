@@ -86,7 +86,7 @@ extension ChatViewViewController : View {
         reactor.state.map { $0.rooms }
             .distinctUntilChanged()
             .bind(to: self.tableView.rx.items(cellIdentifier: NSStringFromClass(RoomsTableViewCell.self), cellType: RoomsTableViewCell.self)) { row, el, cell in
-                cell.title.text = el.name
+                cell.roomName.text = el.name
                 cell.layoutIfNeeded()
             }
             .disposed(by: self.disposeBag)

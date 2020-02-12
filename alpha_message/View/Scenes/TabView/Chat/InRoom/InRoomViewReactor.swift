@@ -12,10 +12,10 @@ import ReactorKit
 class InRoomViewReactor: Reactor {
 
     let messageDataRepository:MessageDataRepository
-    
+    let authRepository:AuthRepository
+
     enum Action {
         case initialize(roomName:String)
-        case setLisner
         case createMessage(message:String?)
         case setInputMessage(message:String?)
     }
@@ -40,19 +40,29 @@ class InRoomViewReactor: Reactor {
         case setInputMessage(_ message:String?)
     }
     
-    init(messageDataRepository:MessageDataRepository) {
+    init(messageDataRepository:MessageDataRepository, authRepository:AuthRepository) {
         self.messageDataRepository = messageDataRepository
+        self.authRepository = authRepository
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .initialize(let roomName):
-            return Observable.just(.setRoomName(roomName))
             
-        case .setLisner:
-            return self.messageDataRepository.attachmentMessageListener(roomName: self.currentState.roomName) { callback -> Observable<Mutation> in
-                
-                return Observable.just(.setMessages(callback))
+            return self.authRepository.currentUser().flatMap { user -> Observable<Mutation> in
+                return Observable.concat(
+                    Observable.just(.setRoomName(roomName)),
+                    self.messageDataRepository.attachmentMessageListener(roomName: roomName) { messages -> Observable<Mutation> in
+                        
+                        var outMessage:[Message] = []
+                        for message in messages {
+                            let other = (user.id != message.from) ? true : false
+                            outMessage.append(Message(message: message.message, from: message.from, isOther: other ))
+                        }
+                        
+                        return Observable.just(.setMessages(outMessage))
+                    }
+                )
             }
             
         case .setInputMessage(let message):

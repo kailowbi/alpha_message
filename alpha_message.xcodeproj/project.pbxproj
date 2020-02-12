@@ -323,18 +323,18 @@
 			children = (
 				A0D6F2BF23EF02D90019D6D5 /* R.generated.swift */,
 				A09E168823EE850C003407FA /* Assets.xcassets */,
-				A01A960C23EEFE0A00844C13 /* SVG */,
+				A01A960C23EEFE0A00844C13 /* Images */,
 				A0BA9D5423EFF3AD004E6EEC /* Font */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		A01A960C23EEFE0A00844C13 /* SVG */ = {
+		A01A960C23EEFE0A00844C13 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A0FE593C23EF158100A290F4 /* rectangle.jpg */,
 				A0FE593A23EF145700A290F4 /* logo.svg */,
 				A0FE593823EF133500A290F4 /* samp.svg */,
-				A0FE593C23EF158100A290F4 /* rectangle.jpg */,
 				A01A960D23EEFE5100844C13 /* Rectangle.svg */,
 				A0FE593E23EF212800A290F4 /* login.svg */,
 				A0FE593F23EF212800A290F4 /* register.svg */,
@@ -352,7 +352,7 @@
 				A08F35C823F29C0F006AAA6D /* create.svg */,
 				A08F35D123F2F3C7006AAA6D /* send.svg */,
 			);
-			path = SVG;
+			path = Images;
 			sourceTree = "<group>";
 		};
 		A08F35CC23F2DF25006AAA6D /* InRoom */ = {

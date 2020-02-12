@@ -22,8 +22,8 @@ class InRoomViewViewController: UIViewController {
     var roomName = String()
     
     let tableView = UITableView().then{
-        $0.register(RoomsTableViewCell.self, forCellReuseIdentifier: NSStringFromClass(RoomsTableViewCell.self))
-        $0.rowHeight = 84
+        $0.register(MessageTableViewCell.self, forCellReuseIdentifier: NSStringFromClass(MessageTableViewCell.self))
+        $0.rowHeight = 116
     }
     var textBox:UIView!
     let textField = PaddingTextField().then{
@@ -86,7 +86,6 @@ class InRoomViewViewController: UIViewController {
             make.bottom.equalTo(textBox.snp.top)
         }
         
-        
     }
     
 }
@@ -99,16 +98,7 @@ extension InRoomViewViewController : View {
         }
         .bind(to: reactor.action)
         .disposed(by: self.disposeBag)
-        
-        reactor.state.map { $0.roomName }
-            .distinctUntilChanged()
-            .filter{ $0 != "" }.map{ _ in
-                Reactor.Action.setLisner
-            }
-            .bind(to: reactor.action)
-            .disposed(by: self.disposeBag)
 
-        
         self.textField.rx.controlEvent(.editingChanged).map { [unowned self] _ in
             return Reactor.Action.setInputMessage(message: self.textField.text ?? "" )
         }
@@ -129,11 +119,20 @@ extension InRoomViewViewController : View {
         
         reactor.state.map { $0.messages }
             .distinctUntilChanged()
-            .bind(to: self.tableView.rx.items(cellIdentifier: NSStringFromClass(RoomsTableViewCell.self), cellType: RoomsTableViewCell.self)) { row, el, cell in
-                cell.title.text = el.message
+            .bind(to: self.tableView.rx.items(cellIdentifier: NSStringFromClass(MessageTableViewCell.self), cellType: MessageTableViewCell.self)) { row, el, cell in
+               
+                cell.setOther(isOther: (el.isOther == true) ? true : false)
+                cell.setMessage(msg: el.message)
                 cell.layoutIfNeeded()
             }
             .disposed(by: self.disposeBag)
+        
+        reactor.state.map { $0.messages.count }
+                .distinctUntilChanged()
+                .filter{ $0 > 0 }
+                .subscribe(onNext: { [unowned self]  lastIndex in
+                    self.tableView.scrollToRow(at: IndexPath(row: lastIndex-1, section: 0), at: .bottom, animated: true)
+                }).disposed(by: self.disposeBag)
         
         reactor.state.map { $0.inputMessage }
             .distinctUntilChanged()
