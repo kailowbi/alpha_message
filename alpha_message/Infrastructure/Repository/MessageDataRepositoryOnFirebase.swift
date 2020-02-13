@@ -116,7 +116,7 @@ class MessageDataRepositoryOnFirebase: MessageDataRepository {
                 return ref.rx
                     .existsInFirestore()
                     .flatMap { [unowned self] exist -> Observable<Void> in
-                        let model = Message(message: message, /*date: Date(),*/ from: uid)
+                        let model = Message(message: message, /*date: Date(),*/ from: uid, isOther: nil)
                         return exist ? Observable.just(()) : self.createDocuments(ref, setData: model)
                 }
         }

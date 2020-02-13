@@ -13,7 +13,7 @@ import Then
 class RoomsTableViewCell: UITableViewCell {
 
     var box = UIView()
-    var title = UILabel()
+    var roomName = UILabel()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,12 +27,12 @@ class RoomsTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         self.addSubview(box)
-        box.addSubview(title)
+        box.addSubview(roomName)
         box.snp.makeConstraints { make in
             make.top.right.left.equalToSuperview().inset(16)
             make.bottom.equalToSuperview().inset(20)
         }
-        title.snp.makeConstraints { make in
+        roomName.snp.makeConstraints { make in
             make.top.right.left.equalToSuperview().inset(0)
             make.height.equalTo(18)
         }
