@@ -41,7 +41,7 @@ class ChatViewReactor: Reactor {
             
             return Observable.concat(
                 Observable.just(.initialize),
-                self.messageDataRepository.getTest().flatMap { rooms -> Observable<Mutation> in
+                self.messageDataRepository.getRooms().flatMap { rooms -> Observable<Mutation> in
                     return Observable.just(.setRooms(rooms: rooms))
                 }
             )

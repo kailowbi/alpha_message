@@ -11,10 +11,10 @@ import RxSwift
 protocol MessageDataRepository {
     func getMessagesFromRoom(roomName:String) -> Observable<Void>
     
-    func getTest() -> Observable<[Room]>
+    func getRooms() -> Observable<[Room]>
     func checkAndCreate(roomName:String) -> Observable<Void>
     
-    func createMessage(roomName:String, message:String) -> Observable<Void>
+    func createMessage(roomName:String, message:Message) -> Observable<Void>
     
     func attachmentMessageListener<T>(roomName:String, _ callback: @escaping ([Message]) -> Observable<T>) -> Observable<T>
 }

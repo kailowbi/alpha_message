@@ -8,14 +8,11 @@
 
 import RxSwift
 import FirebaseFirestore
-//import CodableFirebase
 import RxFirebase
-import FirebaseAuth
 import CodableFirebase
 
 class MessageDataRepositoryOnFirebase: MessageDataRepository {
     
-    private let firebaseAuth:Auth
     private let firestore: Firestore
     
     private struct Collection {
@@ -34,9 +31,8 @@ class MessageDataRepositoryOnFirebase: MessageDataRepository {
         static let maintenanceDescription = "maintenance_description"
     }
     
-    init(firestore:Firestore, firebaseAuth:Auth) {
+    init(firestore:Firestore) {
         self.firestore = firestore
-        self.firebaseAuth = firebaseAuth
     }
     
     func getMessagesFromRoom(roomName: String) -> Observable<Void> {
@@ -87,7 +83,7 @@ class MessageDataRepositoryOnFirebase: MessageDataRepository {
     }
     
     
-    func getTest() -> Observable<[Room]> {
+    func getRooms() -> Observable<[Room]> {
         return self.firestore.collection(Collection.chatsRooms)
              .rx
              .getDocuments()
@@ -101,10 +97,8 @@ class MessageDataRepositoryOnFirebase: MessageDataRepository {
          }
      }
     
-    func createMessage(roomName:String, message:String) -> Observable<Void> {
-        
-        guard let uid = self.firebaseAuth.currentUser?.uid else { return Observable.empty() }
-        
+    func createMessage(roomName:String, message:Message) -> Observable<Void> {
+                
         return self.firestore.collection(Collection.chats).document(Document.messageByRoom).collection(roomName)
             .rx
             .getDocuments()
@@ -116,8 +110,8 @@ class MessageDataRepositoryOnFirebase: MessageDataRepository {
                 return ref.rx
                     .existsInFirestore()
                     .flatMap { [unowned self] exist -> Observable<Void> in
-                        let model = Message(message: message, /*date: Date(),*/ from: uid, isOther: nil)
-                        return exist ? Observable.just(()) : self.createDocuments(ref, setData: model)
+                        
+                        return exist ? Observable.just(()) : self.createDocuments(ref, setData: message)
                 }
         }
         

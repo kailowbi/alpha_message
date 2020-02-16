@@ -98,7 +98,7 @@ extension Container {
             }
             
             container.register(MessageDataRepository.self) { r in
-                return MessageDataRepositoryOnFirebase(firestore: r.resolve(Firestore.self)!, firebaseAuth: r.resolve(Auth.self)!)
+                return MessageDataRepositoryOnFirebase(firestore: r.resolve(Firestore.self)!)
             }
             
         }
