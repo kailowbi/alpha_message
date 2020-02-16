@@ -69,12 +69,16 @@ class InRoomViewReactor: Reactor {
             return Observable.just(.setInputMessage(message))
             
         case .createMessage(let m):
-            guard let message = m else { return Observable.empty() }
-            if message == "" { return Observable.empty() }
             
-            return self.messageDataRepository.createMessage(roomName: self.currentState.roomName, message: message)
-                .flatMap{ _ -> Observable<Mutation> in
-                    return Observable.just(.setInputMessage(nil))
+            return self.authRepository.currentUser().flatMap { user -> Observable<Mutation> in
+                guard let message = m else { return Observable.empty() }
+                if message == "" { return Observable.empty() }
+                let messageData = Message(message: message, /*date: Date(),*/ from: user.id, isOther: nil)
+                
+                return self.messageDataRepository.createMessage(roomName: self.currentState.roomName, message: messageData)
+                    .flatMap{ _ -> Observable<Mutation> in
+                        return Observable.just(.setInputMessage(nil))
+                }
             }
             
         }

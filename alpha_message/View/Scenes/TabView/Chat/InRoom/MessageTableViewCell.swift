@@ -17,9 +17,9 @@ class MessageBox :UIView {
         $0.layer.cornerRadius = 14
         $0.backgroundColor = .gray
     }
-    var message = UILabel().then{
+    var message = UITextView().then{
         $0.backgroundColor = UIColor.init(hex: "F7F7F7")
-        
+        $0.font = UIFont(name: .comfortaaRegular, size: 14)
         $0.layer.cornerRadius = 6
         $0.clipsToBounds = true
     }
